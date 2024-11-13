@@ -2,10 +2,21 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { cn } from "@/lib/utils";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const noNavPaths = ["/sign-in", "/register", "/404", "/forgot-password"];
+
+  const isNoNavPath = noNavPaths.some(path => pathname.startsWith(path));
+
+  if (isNoNavPath) {
+    return <>{children}</>;
+  }
+
   return (
-    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen flex flex-col justify-between font-[family-name:var(--font-geist-sans)]">
       <Navbar />
       {children}
       <SectionWrapper className="min-h-min lg:px-20">
