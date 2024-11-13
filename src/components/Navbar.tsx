@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { AlignJustify } from "lucide-react";
 import { useSession } from "next-auth/react";
 // import { ProfileMenu } from "../ProfileMenu";
@@ -12,13 +20,17 @@ import LogoDomsat from "../../public/assets/images/logodomsat.png";
 import ListComponent from "./ListComponent";
 import { cn } from "@/lib/utils";
 
+type NavListProps = {
+  onClick?: () => void;
+  pathname: string;
+  isUseSheetClose?: boolean;
+};
+
 const NavList = ({
   onClick,
   pathname,
-}: {
-  onClick?: () => void;
-  pathname: string;
-}) => (
+  isUseSheetClose = false,
+}: NavListProps) => (
   <ListComponent
     data={NavRoutes}
     renderItem={(item) => (
@@ -27,16 +39,46 @@ const NavList = ({
         key={item.label}
         onClick={onClick}
         className={cn(
-          "relative inline-block text-sm font-medium md:text-lg text-black cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:absolute before:bg-black before:origin-center before:h-[1px] before:w-0 before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:absolute after:bg-black after:origin-center after:h-[1px] after:w-0 after:bottom-0 after:right-[50%]",
+          "relative w-full inline-block text-sm font-medium md:text-lg text-black cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:absolute before:bg-black before:origin-center before:h-[1px] before:w-0 before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:absolute after:bg-black after:origin-center after:h-[1px] after:w-0 after:bottom-0 after:right-[50%]",
           pathname === item.href
             ? "before:w-[50%] after:w-[50%]"
             : "after:duration-500 hover:after:w-[50%] before:duration-500 hover:before:w-[50%]"
         )}
       >
-        {item.label}
+        {isUseSheetClose ? (
+          <SheetPrimitive.Close className="w-full text-start">
+            {item.label}
+          </SheetPrimitive.Close>
+        ) : (
+          <span>{item.label}</span>
+        )}
       </Link>
     )}
   />
+);
+
+type NavSheetProps = {
+  isOpen: boolean;
+  handler: (data: boolean) => void;
+  pathname: string;
+};
+
+const NavSheet = ({ isOpen, handler, pathname }: NavSheetProps) => (
+  <Sheet defaultOpen={false}>
+    <SheetTrigger className="lg:hidden" asChild>
+      <Button variant="outline">
+        <AlignJustify size={24} />
+      </Button>
+    </SheetTrigger>
+    <SheetContent side="left">
+      <SheetHeader>
+        <SheetTitle>Menu</SheetTitle>
+      </SheetHeader>
+      <SheetDescription className="flex flex-col gap-5">
+        <NavList pathname={pathname} isUseSheetClose={true} />
+      </SheetDescription>
+    </SheetContent>
+  </Sheet>
 );
 
 export default function Navbar() {
@@ -46,8 +88,6 @@ export default function Navbar() {
   //   const { data: session } = useSession();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
-  const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
   useEffect(() => {
     window.addEventListener(
@@ -101,14 +141,14 @@ export default function Navbar() {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <AlignJustify
-              className="md:hidden cursor-pointer"
-              size={24}
-              onClick={toggleIsNavOpen}
+            <NavSheet
+              isOpen={isNavOpen}
+              handler={setIsNavOpen}
+              pathname={pathname}
             />
             <Button
               size="sm"
-              className="bg-black text-white rounded-full px-4 py-3 md:text-lg mr-3 md:mr-0"
+              className="bg-black text-white rounded-full px-4 md:px-6 h-8 md:h-10 md:text-lg mr-3 md:mr-0"
             >
               Let's Talk
             </Button>

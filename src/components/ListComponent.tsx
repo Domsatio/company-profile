@@ -1,6 +1,6 @@
 import React from 'react';
 type ListComponentProps = {
-    data: any[];
+    data: any[]
     renderItem: (item: any, index: number) => React.ReactNode;
 };
 
