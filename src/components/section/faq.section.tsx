@@ -33,7 +33,7 @@ const FAQ = () => {
           <ListComponent
             data={accordionItems}
             renderItem={(item: AccordionItemProps) => (
-              <AccordionItem value={item.id} className="mb-5">
+              <AccordionItem key={item.id} value={item.id} className="mb-5">
                 <AccordionTrigger>{item.title}</AccordionTrigger>
                 <AccordionContent>
                   {item.content}
