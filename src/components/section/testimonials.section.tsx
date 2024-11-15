@@ -14,35 +14,33 @@ import Smile from "../../../public/assets/icons/Smile.svg";
 import LogoDomsat from "../../../public/assets/images/logo_domsat.jpg";
 import { AboutServices, AboutServicesProps } from "@/constants/AboutServices";
 
-import React from 'react'
-
 const Testimonials = () => {
   return (
-    <SectionWrapper className="py-20 bg-white flex flex-col items-center justify-center space-y-10">
-      <div className="mx-auto text-center space-y-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex justify-center">
+    <SectionWrapper className="py-10 md:py-20 bg-white flex flex-col items-center justify-center space-y-6 md:space-y-10">
+      <div className="mx-auto text-center space-y-3 md:space-y-4 px-4 md:px-0">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex justify-center items-center">
           Our Clients{" "}
           <Image
             src={Smile}
             alt="Smile Icon"
             height={40}
             width={40}
-            className="mx-2"
+            className="mx-2 hidden md:block"
           />
           About Services
         </h1>
-        <p className="text-lg max-w-2xl mx-auto flex justify-center items-center">
+        <p className="text-base md:text-lg max-w-2xl mx-auto flex justify-center items-center">
           Discover what our valued clients say about our exceptional services
           <Image
             src={Thunder}
             alt="Thunder Icon"
             width={40}
             height={40}
-            className="mx-2"
+            className="mx-2 hidden md:block"
           />
         </p>
       </div>
-      <div className="w-full flex justify-center md:justify-around md:space-x-10">
+      <div className="w-full flex justify-center md:justify-around md:space-x-10 px-4 md:px-6 lg:px-0">
         <div className="hidden lg:flex items-start justify-end lg:basis-4/12">
           <Image
             src={LogoDomsat}
@@ -58,7 +56,7 @@ const Testimonials = () => {
             opts={{
               align: "start",
             }}
-            className="w-full max-w-sm md:max-w-72 lg:max-w-3xl h-96"
+            className="w-full max-w-[300px] sm:max-w-sm md:max-w-2xl lg:max-w-3xl h-[350px] md:h-96"
           >
             <CarouselContent className="p-2 md:p-0 cursor-grab">
               <ListComponent
@@ -76,8 +74,8 @@ const Testimonials = () => {
                 )}
               />
             </CarouselContent>
-            <CarouselPrevious customClassName="-bottom-16 right-20 xl:-right-10 w-14 h-14 border-2 border-[#a3a2a2]" />
-            <CarouselNext customClassName="-bottom-16 right-2 xl:-right-28 w-14 h-14 border-2 border-[#a3a2a2]" />
+            <CarouselPrevious customClassName="-bottom-16 right-20 md:right-16 xl:-right-10 w-12 h-12 md:w-14 md:h-14 border-2 border-[#a3a2a2]" />
+            <CarouselNext customClassName="-bottom-16 right-2 md:right-0 xl:-right-28 w-12 h-12 md:w-14 md:h-14 border-2 border-[#a3a2a2]" />
           </Carousel>
         </div>
       </div>

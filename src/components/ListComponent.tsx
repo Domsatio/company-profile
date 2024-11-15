@@ -6,9 +6,7 @@ type ListComponentProps = {
   renderItem: (item: any, index: number) => React.ReactNode;
 };
 
-const ListComponent: React.FC<ListComponentProps> = (props) => {
-  const { data = [], renderItem } = props;
-
+const ListComponent: React.FC<ListComponentProps> = ({ data = [], renderItem }) => {
   return (
     <React.Fragment>{data.map((item, index) => renderItem(item, index))}</React.Fragment>
   );

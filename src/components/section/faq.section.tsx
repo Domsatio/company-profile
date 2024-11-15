@@ -13,19 +13,21 @@ import {
 
 const FAQ = () => {
   return (
-    <SectionWrapper className="py-20 rounded-b-3xl bg-white flex items-center justify-center">
-      <div className="mx-auto w-full max-w-4xl space-y-8">
-        <div className="space-y-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight flex justify-center">
-            Frequently Asked
+    <SectionWrapper className="py-12 md:py-20 rounded-b-3xl bg-white flex items-center justify-center px-4 md:px-6">
+      <div className="mx-auto w-full max-w-4xl space-y-6 md:space-y-8">
+        <div className="space-y-3 md:space-y-4 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight flex flex-wrap justify-center items-center">
+            Frequently Asked{" "}
             <Image
               src={GreenQuestionMark}
               alt="Green Question Mark Icon"
-              className="mx-2"
+              className="mx-2 hidden sm:block"
+              width={40}
+              height={40}
             />
             Questions
           </h1>
-          <p className="text-lg mx-auto">
+          <p className="text-base md:text-lg mx-auto max-w-2xl px-2">
             We are here to answer your questions and help you with any concerns you may have.
           </p>
         </div>

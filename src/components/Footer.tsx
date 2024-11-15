@@ -37,18 +37,17 @@ const FooterSection = ({ title, links }: FooterSectionProps) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#35363d] py-16 rounded-t-3xl">
-      <div className="px-5 lg:px-20 space-y-8">
+    <footer className="bg-[#35363d] py-10 md:py-16 rounded-t-3xl">
+      <div className="px-5 md:px-20 space-y-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Brand Section */}
-          <div className="w-full space-y-4">
+          <div className="w-full space-y-7">
             <div className="flex items-center gap-3">
-              <Image src={DomsatLogo} alt="Domsat" width={40} height={40} />
-              <span className="text-2xl text-zinc-100 font-semibold">Domsat</span>
+              <Image src={DomsatLogo} alt="Domsat" width={30} height={30} />
+              <span className="text-xl md:text-2xl text-zinc-100 font-semibold">Domsat</span>
             </div>
             <div className="space-y-2 text-sm text-zinc-400">
-              {/* <p>Crafted with Passion and Precision. Leading the Digital Revolution.</p> */}
-              <div className="flex items-center gap-3">
+              <div className="flex gap-3">
                 <MapPin size={18} />
                 <p>Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan <br />
                   Ponorogo, Ponorogo, Jawa Timur, 63413</p>
@@ -75,8 +74,8 @@ export default function Footer() {
         <Separator className="bg-zinc-400" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-zinc-400 text-center md:text-start">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8 md:gap-4">
+          <div className="text-xs sm:text-sm text-zinc-400 text-center md:text-start">
             &copy; PT. Domsat Solutechno Global {new Date().getFullYear()}. All Rights Reserved.
           </div>
           <div className="flex items-center gap-4">

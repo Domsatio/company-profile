@@ -61,11 +61,11 @@ const NavSheet = ({ pathname }: {
 }) => (
   <Sheet defaultOpen={false}>
     <SheetTrigger className="md:hidden" asChild>
-      <Button variant="outline" size='lg' className="rounded-full">
+      <Button variant="ghost" size='icon'>
         <AlignJustify size={24} />
       </Button>
     </SheetTrigger>
-    <SheetContent side="left">
+    <SheetContent>
       <SheetHeader>
         <SheetTitle>Menu</SheetTitle>
       </SheetHeader>
@@ -80,10 +80,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full md:px-10 py-4">
+    <header className="w-full px-5 md:px-10 py-4">
       <div className="flex items-center justify-between">
         <div className="md:flex md:space-x-8">
-          <Link href="/" className="flex items-center md:space-x-3">
+          <Link href="/" className="flex items-center space-x-3">
             <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
             <span className="text-xl font-semibold">Domsat</span>
           </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
         </div>
         <div className="flex items-center gap-2">
           <NavSheet pathname={pathname} />
-          <Button size='lg' className="rounded-full md:text-base">
+          <Button size='lg' className="hidden md:block rounded-full md:text-base">
             Let&apos;s Talk
           </Button>
         </div>

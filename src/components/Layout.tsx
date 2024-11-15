@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="w-full md:px-10">
         {children}
       </main>
-      <SectionWrapper className="mt-10 md:px-10">
+      <SectionWrapper className="mt-6 sm:mt-8 md:mt-10 md:px-10">
         <Footer />
       </SectionWrapper>
     </div>
