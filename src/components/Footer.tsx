@@ -1,162 +1,99 @@
 import Link from "next/link";
-import { Instagram, Linkedin, Twitter, ArrowUp } from "lucide-react";
 import Image from "next/image";
-import LogoDomsat from "../../public/assets/images/logodomsat.png";
+import DomsatLogo from "../../public/assets/images/Domsat.svg";
 import ListComponent from "./ListComponent";
+import { Separator } from "./ui/separator";
+import { FooterLinkProps, FooterSectionProps, ListFooterLink, ListFooterLinkProps, socialLinks } from "@/constants/Footer";
+import { Button } from "./ui/button";
+import { Mail, MapPin } from "lucide-react";
 
-type ListFooterLinkProps = {
-  Home: { label: string; href: string }[];
-  Help: { label: string; href: string }[];
-  Company: { label: string; href: string }[];
-};
+const FooterLink = ({ label, href }: FooterLinkProps) => (
+  <li>
+    <Link href={href} className="hover:text-white transition-colors">
+      {label}
+    </Link>
+  </li>
+);
 
-type FooterLinkProps = {
-  label: string;
-  href: string;
-};
-
-const ListFooterLink: ListFooterLinkProps = {
-  Home: [
-    { label: "Blog", href: "/blog" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
-  ],
-  Help: [
-    { label: "FAQ", href: "/faq" },
-    { label: "Accessibility", href: "/accessibility" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-  ],
-  Company: [
-    { label: "Career", href: "/career" },
-    { label: "Pricing", href: "/pricing" },
-  ],
-};
+const FooterSection = ({ title, links }: FooterSectionProps) => (
+  <div className="space-y-4">
+    <h3 className="text-sm font-semibold text-zinc-100">
+      {title}
+    </h3>
+    <ul className="space-y-2 text-sm text-zinc-400">
+      <ListComponent
+        data={links}
+        renderItem={(item) => (
+          <FooterLink
+            key={item.label}
+            label={item.label}
+            href={item.href}
+          />
+        )}
+      />
+    </ul>
+  </div>
+);
 
 export default function Footer() {
-  const FooterLink = ({ label, href }: FooterLinkProps) => (
-    <li>
-      <Link href={href} className="hover:text-white transition-colors">
-        {label}
-      </Link>
-    </li>
-  );
   return (
-    <footer className="bg-zinc-900 text-zinc-100 py-12 relative lg:rounded-t-3xl">
-      <div className="container max-w-screen-xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+    <footer className="bg-[#35363d] py-16 rounded-t-3xl">
+      <div className="px-5 lg:px-20 space-y-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Brand Section */}
           <div className="w-full space-y-4">
-            <div className="flex items-center gap-2 font-semibold">
-              <Image src={LogoDomsat} alt="Domsat" width={60} height={60} />
-              <span className="text-xl">Domsat</span>
+            <div className="flex items-center gap-3">
+              <Image src={DomsatLogo} alt="Domsat" width={40} height={40} />
+              <span className="text-2xl text-zinc-100 font-semibold">Domsat</span>
             </div>
             <div className="space-y-2 text-sm text-zinc-400">
-              <p>Designs Crafted with Passion and Precision</p>
-              <p>Leading the digital revolution</p>
+              {/* <p>Crafted with Passion and Precision. Leading the Digital Revolution.</p> */}
+              <div className="flex items-center gap-3">
+                <MapPin size={18} />
+                <p>Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan <br />
+                  Ponorogo, Ponorogo, Jawa Timur, 63413</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail size={18} />
+                <p>domsattech@gmail.com</p>
+              </div>
             </div>
           </div>
 
+          {/* Footer Links */}
           <div className="md:w-4/5 flex justify-between">
-            {/* Home Links */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider">
-                Home
-              </h3>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <ListComponent
-                  data={ListFooterLink.Home}
-                  renderItem={(item) => (
-                    <FooterLink
-                      key={item.label}
-                      label={item.label}
-                      href={item.href}
-                    />
-                  )}
-                />
-              </ul>
-            </div>
-
-            {/* Help Links */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider">
-                Help
-              </h3>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <ListComponent
-                  data={ListFooterLink.Help}
-                  renderItem={(item) => (
-                    <FooterLink
-                      key={item.label}
-                      label={item.label}
-                      href={item.href}
-                    />
-                  )}
-                />
-              </ul>
-            </div>
-
-            {/* Company Links */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider">
-                Company
-              </h3>
-              <ul className="space-y-2 text-sm text-zinc-400">
-                <ListComponent
-                  data={ListFooterLink.Company}
-                  renderItem={(item) => (
-                    <FooterLink
-                      key={item.label}
-                      label={item.label}
-                      href={item.href}
-                    />
-                  )}
-                />
-              </ul>
-            </div>
+            {(Object.keys(ListFooterLink) as Array<keyof ListFooterLinkProps>).map((section) => (
+              <FooterSection
+                key={section}
+                title={section}
+                links={ListFooterLink[section]}
+              />
+            ))}
           </div>
         </div>
+
+        <Separator className="bg-zinc-400" />
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-zinc-400 text-center md:text-start">
-            © Domsat {new Date().getFullYear()}
-            <span className="block md:inline md:ml-2">
-              All Rights Reserved.
-            </span>
+            &copy; PT. Domsat Solutechno Global {new Date().getFullYear()}. All Rights Reserved.
           </div>
           <div className="flex items-center gap-4">
-            <Link
-              href="https://instagram.com"
-              className="p-2 rounded-full hover:bg-zinc-800 transition-colors"
-            >
-              <Instagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="https://linkedin.com"
-              className="p-2 rounded-full hover:bg-zinc-800 transition-colors"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-            <Link
-              href="https://twitter.com"
-              className="p-2 rounded-full hover:bg-zinc-800 transition-colors"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
+            {socialLinks.map(({ href, icon: Icon, label }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+              >
+                <Button className="rounded-full bg-[#35363d] border border-zinc-400 font-light hover:bg-zinc-800 transition-colors hover:text-zinc-100">
+                  <Icon size={20} />
+                  {label}
+                </Button>
+              </Link>
+            ))}
           </div>
         </div>
-
-        {/* <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="absolute bottom-4 right-4 p-2 bg-white rounded-full shadow-lg hover:bg-zinc-100 transition-colors"
-          aria-label="Back to top"
-        >
-          <ArrowUp className="h-5 w-5 text-zinc-900" />
-        </button> */}
       </div>
     </footer>
   );

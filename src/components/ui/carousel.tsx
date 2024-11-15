@@ -112,10 +112,10 @@ const Carousel = React.forwardRef<
       }
 
       onSelect(api)
-      console.log({api: api});
-      console.log({onSelect: onSelect});
-      
-      
+      console.log({ api: api });
+      console.log({ onSelect: onSelect });
+
+
       api.on("reInit", onSelect)
       api.on("select", onSelect)
 
@@ -207,7 +207,7 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button> & CustomCarouselButtonProps
->(({ className, customClassName, iconClassName, customIcon, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, customClassName, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -216,18 +216,18 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
+        "absolute h-8 w-8 rounded-full",
         orientation === "custom" ? customClassName :
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+          orientation === "horizontal"
+            ? "-left-12 top-1/2 -translate-y-1/2"
+            : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      {customIcon ? customIcon : <ArrowLeft className={cn(["h-4 w-4", iconClassName])} />}
+      <ArrowLeft className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -237,7 +237,7 @@ CarouselPrevious.displayName = "CarouselPrevious"
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button> & CustomCarouselButtonProps
->(({ className, customClassName, iconClassName, customIcon, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, customClassName, variant = "outline", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -248,16 +248,16 @@ const CarouselNext = React.forwardRef<
       className={cn(
         "absolute h-8 w-8 rounded-full",
         orientation === "custom" ? customClassName :
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+          orientation === "horizontal"
+            ? "-right-12 top-1/2 -translate-y-1/2"
+            : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      {customIcon ? customIcon : <ArrowRight className={cn(["h-4 w-4", iconClassName])} />}
+      <ArrowRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
