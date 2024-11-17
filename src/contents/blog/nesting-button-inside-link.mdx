@@ -5,15 +5,15 @@ description: 'Discover whether you can nest a <button> element inside an <a> tag
 banner: 'https://images.unsplash.com/photo-1729236401289-7428566526d6'
 tags: 'web,react'
 englishOnly: true
+author: 'Asharul'
 ---
 
 ## Introduction
 
 If you have ever used Linear. You might notice that they use a link for their kanban item
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/CleanShot_2024-09-28_at_10.32.43'
+<NextImage
+  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
   alt='Linear kanban is using a link for the their kanban item'
   width={500}
   height={527}
@@ -21,9 +21,8 @@ If you have ever used Linear. You might notice that they use a link for their ka
 
 But it’s also interactable
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/CleanShot_2024-09-24_at_23.22.532x'
+<NextImage
+  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
   alt="Linear kanban has button inside a link that's interactable"
   width={400}
   height={343}
@@ -53,7 +52,7 @@ Note: My examples is going to use React. But it will be the same with any framew
 It’s quite natural to reach to this solution using markup
 
 ```jsx
-<a href='https://theodorusclarence.com'>
+<a href='https://domsat.co.id'>
   hello this is a link
   <button onClick={open}>open combobox</button>
 </a>
@@ -61,19 +60,12 @@ It’s quite natural to reach to this solution using markup
 
 However, you’re gonna get quickly disappointed because when you have a button inside a link, the link default behavior will take precedence. Thus, clicking the button will send you directly to the link instead of doing the `onClick`.
 
-<CloudinaryVideoPlayer
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/mundane-attempt'
-  width='400'
-  height='464'
-/>
-
 ## Preventing Default
 
 You can actually stop the `<a>` from redirecting by using `e.preventDefault` .
 
 ```jsx
-<a href='https://theodorusclarence.com' onClick={(e) => e.preventDefault()}>
+<a href='https://domsat.co.id' onClick={(e) => e.preventDefault()}>
   hello this is a link
   <button onClick={() => alert('open combobox')}>open combobox</button>
 </a>
@@ -81,18 +73,11 @@ You can actually stop the `<a>` from redirecting by using `e.preventDefault` .
 
 By preventing the default behavior, we won’t be redirected to the link.
 
-<CloudinaryVideoPlayer
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/preventing-default'
-  width={400}
-  height={380}
-/>
-
 That means, we can selectively prevent the default behavior when we are clicking a **button**.
 
 ```tsx
 <a
-  href='https://theodorusclarence.com'
+  href='https://domsat.co.id'
   onClick={(e) => {
     if (e.target instanceof HTMLElement && e.target.tagName === 'BUTTON') {
       e.preventDefault();
@@ -114,7 +99,7 @@ This is where another problem comes.
 
 ```tsx
 <a
-  href='https://theodorusclarence.com'
+  href='https://domsat.co.id'
   onClick={(e) => {
     if (e.target instanceof HTMLElement && e.target.tagName === 'BUTTON') {
       e.preventDefault();
@@ -130,20 +115,12 @@ This is where another problem comes.
 </a>
 ```
 
-<CloudinaryVideoPlayer
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/icons-inside-buttons'
-  width={400}
-  height={464}
-/>
-
 It doesn’t work.
 
 If your button has svg inside, when we are checking the `e.target.tagName` it won’t detect as a button since we are actually clicking on the SVG element itself (`circle`)
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nesting-button-inside-link/CleanShot_2024-09-24_at_23.54.222x'
+<NextImage
+  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
   alt='CleanShot'
   width={500}
   height={358}

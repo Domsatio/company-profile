@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import * as React from 'react';
-import { Tooltip as TippyTooltip, TooltipProps } from 'react-tippy';
 import Tippy, { TippyProps } from '@tippyjs/react';
 
 type TooltipTextProps = {

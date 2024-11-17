@@ -1,24 +1,21 @@
 "use client";
 import * as React from "react";
-import { getMDXComponent } from "mdx-bundler/client";
 import ListComponent from "@/components/ListComponent";
-import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters";
+import { BlogFrontmatter } from "@/types/frontmatters";
 import BlogCard from "@/components/Blog/BlogCard";
 
 export default function BlogClient({
   posts,
-  tags,
+  // tags,
 }: {
   posts: BlogFrontmatter[];
-  tags: string[];
+  // tags: string[];
 }) {
   //   const code: string = "";
   //   const Component = React.useMemo(() => getMDXComponent(code), [code]);
-  const [filteredPosts, setFilteredPosts] = React.useState<
-    Array<BlogFrontmatter & InjectedMeta>
-  >(() => [...posts]);
-
-  console.log({ posts: posts, tags: tags });
+  // const [filteredPosts, setFilteredPosts] = React.useState<
+  //   Array<BlogFrontmatter & InjectedMeta>
+  // >(() => [...posts]);
 
   return (
     <div className="mx-auto">

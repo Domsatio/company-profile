@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import Link, { LinkProps } from 'next/link';
 
 export type UnstyledLinkProps = {
@@ -37,7 +37,7 @@ export default function UnstyledLink({
       rel='noopener noreferrer'
       href={href}
       {...rest}
-      className={clsx(className, 'cursor-newtab')}
+      className={cn(className, 'cursor-newtab')}
     >
       {children}
     </a>

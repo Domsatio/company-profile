@@ -6,6 +6,7 @@ description: 'Thorough explanation on Next.js data fetching method such as CSR, 
 englishOnly: 'true'
 banner: 'https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
 tags: 'nextjs, reactjs'
+author: 'Febry'
 ---
 
 ## Introduction
@@ -59,12 +60,11 @@ export default function CSRPage() {
 
 ### Demo
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/CSR_x4o5as'
+<NextImage
+  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
   alt='CSR'
-  width={1438}
-  height={824}
+  width={857}
+  height={437}
 />
 
 Terms:
@@ -83,15 +83,13 @@ Video Description:
 2. **LOADING indicator**, because the data fetching runs after the page is rendered, the data is not fetched instantly, therefore showing a loading state.
 3. **Data is fetched on every page request**, which is why the time shown is different for each reloads.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/0-csr-illustration_aoxeou'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='0-csr-illustration'
-  width={937}
-  height={544}
+  width={857}
+  height={437}
 />
 
----
 
 ## Server Side Rendering (SSR)
 
@@ -121,12 +119,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 ### Demo
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/SSR_ififit'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='SSR'
-  width={1432}
-  height={763}
+  width={857}
+  height={437}
 />
 
 Video Description:
@@ -139,9 +136,8 @@ Video Description:
 2. **DELAY before render, and no LOADING indicator**, the data is fetched before the page is rendered, so there will be a slight **delay** where the **API is being hit** at the moment, then it will show the page without loading indicator
 3. **Data is fetched on every page request**, which is why the time shown is different for each reloads.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/1-ssr-illustration_gnjcbe'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='1-ssr-illustration'
   width={857}
   height={437}
@@ -153,12 +149,11 @@ Video Description:
 
 Here is the difference between CSR vs SSR, keep an eye on **delay** and **loading** indicators.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/CSRvsSSR_fkzhia'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='CSRvsSSR'
-  width={1432}
-  height={763}
+  width={857}
+  height={437}
 />
 
 Video Description:
@@ -171,12 +166,11 @@ Video Description:
 1. **CSR hit the API after the page loads.**
 2. **SSR hit the API before the page loads.**
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/2-csr-vs-ssr_seegng'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='2-csr-vs-ssr'
-  width={1117}
-  height={501}
+  width={857}
+  height={437}
 />
 
 ### Short addition
@@ -215,12 +209,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
 ### Demo
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/SSG_v1uyiy'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='SSG'
-  width={1432}
-  height={763}
+  width={857}
+  height={437}
 />
 
 Video Description:
@@ -234,12 +227,11 @@ Video Description:
 2. **Fetched when running** `yarn build{:bash}`, the API will be hit **ONLY** when the application is building. This is why the time is at 13:39, while the real-time is 16:17.
 3. **Data will not change because no further fetch**, which is why the time shown is the same for each reloads.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/3-ssg-illustration_bzfog3'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='3-ssg-illustration'
-  width={1272}
-  height={473}
+  width={857}
+  height={437}
 />
 
 ---
@@ -273,12 +265,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
 ### Demo
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/ISR_nhhlaa'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='ISR'
-  width={1432}
-  height={763}
+  width={857}
+  height={437}
 />
 
 Disclaimer: Revalidate time is set to 20 seconds.
@@ -297,30 +288,27 @@ Now, this is might be confusing for you, but here is the key I want you to look 
    1. First Reload at 16:40:36(RT), we know that it is not on the cooldown state anymore. The first visit after the cooldown state is **off,** is going to trigger **page rebuild**. Page rebuild meaning, only this certain page is going to be rebuild. Not the whole application. The fetch API will run in the background, but there will be **no changes** on the Preview Time
    2. Second Full Reload at 16:40:40(RT), the Preview Time change to 16:40:37(PT). Exactly a second after the page rebuild (which means the rebuild takes about 1s). This second reload is going to serve that rebuilt page from the previous reload.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/4-cooldown-on-isr_uvkhlm'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='4-cooldown-on-isr'
-  width={1038}
-  height={469}
+  width={857}
+  height={437}
 />
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/5-cooldown-off-isr_ximpem'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='5-cooldown-off-isr'
-  width={1269}
-  height={536}
+  width={857}
+  height={437}
 />
 
 ### Revisiting Page vs Full Reload
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/isr-revisit-reload_oi7buw'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='isr-revisit-reload'
-  width={1432}
-  height={763}
+  width={857}
+  height={437}
 />
 
 Terms:
@@ -348,12 +336,11 @@ When the cooldown is off, if no one visits the page, then that page **will not r
 
 But, the **first** person that visits when the **cooldown state is off**, is going to **trigger a rebuild.** That person won't be seeing changes. But, the changes will be served for **the next full reload**.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-fetch-method/6-cooldown-illustration_kdwbe5'
+<NextImage
+  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
   alt='6-cooldown-illustration'
-  width={1259}
-  height={390}
+  width={857}
+  height={437}
 />
 
 ## On-Demand Revalidation

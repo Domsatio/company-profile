@@ -1,6 +1,4 @@
-// app/blog/[...slug]/page.tsx
 import { FC } from "react";
-import { useRouter } from "next/router";
 import {
   getFileBySlug,
   getFileSlugArray,
@@ -17,26 +15,6 @@ interface Params extends ParsedUrlQuery {
 interface PostPageProps {
   params: Params;
 }
-
-// export async function generateStaticParams() {
-//   const posts = await getFileSlugArray('blog');
-
-//   console.log({posts: posts});
-
-//   if (!Array.isArray(posts)) {
-//     console.error('getAllSlugs did not return an array');
-//     return [];
-//   }
-
-//   return {
-//     paths: posts.map((slug) => ({
-//       params: {
-//         slug,
-//       },
-//     })),
-//     fallback: false,
-//   };
-// }
 
 const SingleBlogPage: FC<PostPageProps> = async ({ params }) => {
   const { slug } = params;

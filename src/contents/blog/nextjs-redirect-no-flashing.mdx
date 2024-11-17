@@ -4,6 +4,7 @@ publishedAt: '2021-05-18'
 description: 'Next.js is a static site by default, so redirecting unauthenticated user sometimes can be a problem.'
 banner: 'https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
 tags: 'nextjs'
+author: 'Ghozy'
 ---
 
 ## Introduction
@@ -20,9 +21,8 @@ But, in Next.js, we get the static page first, then only after finishing the hyd
 
 I saw a lot of this problem even in the production app, maybe they still cover up the data because some of it was fetched client-side, but the shell sometimes still shows up. Try opening this website [app.splitbee.io/projects](https://app.splitbee.io/projects/theodorusclarence.com). You are not supposed to have access to this page. You will see a flash of the dashboard shell then only after that flash, you will get redirected to the login page.
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-redirect-no-flashing/splitbee_ck84xh'
+<NextImage
+  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
   alt='splitbee'
   width={1590}
   height={896}
@@ -145,9 +145,8 @@ export default MyApp;
 
 ### 1. Without using full page loader & not authenticated `/blocked-unhandled`
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-redirect-no-flashing/blocked-unhandled_m4chdj'
+<NextImage
+  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
   alt='blocked-unhandled'
   width={1440}
   height={852}
@@ -157,9 +156,8 @@ As you can see, the red text is still flashed briefly
 
 ### 2. Using full page loader & not authenticated `/blocked-component`
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-redirect-no-flashing/blocked_nbwdvm'
+<NextImage
+  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
   alt='blocked'
   width={1440}
   height={852}
@@ -169,9 +167,8 @@ Using full page loader, no content will be flashed
 
 ### 3. Using full page loader & authenticated by checking the token
 
-<CloudinaryImg
-  mdx
-  publicId='theodorusclarence/blogs/nextjs-redirect-no-flashing/blocked-token_lhresk'
+<NextImage
+  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
   alt='blocked-token'
   width={1440}
   height={852}

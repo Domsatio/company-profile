@@ -1,36 +1,34 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "./ui/button";
+'use client'
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { Button } from './ui/button'
+import { Textarea } from './ui/textarea'
+import { Input } from './ui/input'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { AlignJustify } from "lucide-react";
-import { useSession } from "next-auth/react";
-// import { ProfileMenu } from "../ProfileMenu";
-import { NavRoutes } from "@/constants/NavRoutes";
-import { usePathname, useSearchParams } from "next/navigation";
-import LogoDomsat from "../../public/assets/images/logodomsat.png";
-import ListComponent from "./ListComponent";
-import { cn } from "@/lib/utils";
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from '@/components/ui/dialog'
+import * as SheetPrimitive from '@radix-ui/react-dialog'
+import { NavRoutes } from '@/constants/NavRoutes'
+import { AlignJustify } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import DomsatLogo from '../../public/assets/images/Domsat.svg'
+import ListComponent from './ListComponent'
+import { cn } from '@/lib/utils'
+import { useTheme } from 'next-themes'
 
 type NavListProps = {
-  onClick?: () => void;
-  pathname: string;
-  isUseSheetClose?: boolean;
-};
+  onClick?: () => void
+  pathname: string
+  isUseSheetClose?: boolean
+}
 
-const NavList = ({
-  onClick,
-  pathname,
-  isUseSheetClose = false,
-}: NavListProps) => (
+const NavList = ({ onClick, pathname, isUseSheetClose = false }: NavListProps) => (
   <ListComponent
     data={NavRoutes}
     renderItem={(item) => (
@@ -39,122 +37,131 @@ const NavList = ({
         key={item.label}
         onClick={onClick}
         className={cn(
-          "relative w-full inline-block text-sm font-medium md:text-lg text-black cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:absolute before:bg-black before:origin-center before:h-[1px] before:w-0 before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:absolute after:bg-black after:origin-center after:h-[1px] after:w-0 after:bottom-0 after:right-[50%]",
+          '',
           pathname === item.href
-            ? "before:w-[50%] after:w-[50%]"
-            : "after:duration-500 hover:after:w-[50%] before:duration-500 hover:before:w-[50%]"
+            ? 'before:w-[50%] after:w-[50%]'
+            : 'after:duration-500 hover:after:w-[50%] before:duration-500 hover:before:w-[50%]'
         )}
       >
         {isUseSheetClose ? (
-          <SheetPrimitive.Close className="w-full text-start">
-            {item.label}
-          </SheetPrimitive.Close>
+          <SheetPrimitive.Close className="w-full text-start">{item.label}</SheetPrimitive.Close>
         ) : (
-          <span>{item.label}</span>
+          <Button variant="ghost" className="hover:bg-gray-200 rounded-full">
+            {item.label}
+          </Button>
         )}
       </Link>
     )}
   />
-);
+)
 
-type NavSheetProps = {
-  isOpen: boolean;
-  handler: (data: boolean) => void;
-  pathname: string;
-};
-
-const NavSheet = ({ isOpen, handler, pathname }: NavSheetProps) => (
+const NavSheet = ({ pathname }: { pathname: string }) => (
   <Sheet defaultOpen={false}>
-    <SheetTrigger className="lg:hidden" asChild>
-      <Button variant="outline">
+    <SheetTrigger className="md:hidden" asChild>
+      <Button variant="ghost" size="icon">
         <AlignJustify size={24} />
       </Button>
     </SheetTrigger>
-    <SheetContent side="left">
+    <SheetContent>
       <SheetHeader>
         <SheetTitle>Menu</SheetTitle>
       </SheetHeader>
-      <SheetDescription className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 mt-5">
         <NavList pathname={pathname} isUseSheetClose={true} />
-      </SheetDescription>
+      </div>
     </SheetContent>
   </Sheet>
-);
+)
+
+import { Label } from '@/components/ui/label'
+import { Switch } from '@/components/ui/switch'
+import { Moon, Sun } from 'lucide-react'
+import { useState } from 'react'
+
+const ToggleDarkMode = () => {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Prevent hydration issues
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+  return (
+    <div>
+      <div className="relative inline-grid h-9 grid-cols-[1fr_1fr] items-center text-sm font-medium">
+        <Switch
+          id="switch-12"
+          checked={theme === 'dark'}
+          onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className="peer absolute dark:bg-white dark:text-dark inset-0 h-[inherit] w-auto data-[state=checked]:bg-input/50 data-[state=unchecked]:bg-input/50 [&_span]:h-full [&_span]:w-1/2 [&_span]:transition-transform [&_span]:duration-300 [&_span]:[transition-timing-function:cubic-bezier(0.16,1,0.3,1)] data-[state=checked]:[&_span]:translate-x-full rtl:data-[state=checked]:[&_span]:-translate-x-full"
+        />
+        <span className="pointer-events-none relative me-0.5 flex min-w-8 items-center justify-center text-center peer-data-[state=checked]:text-muted-foreground/70">
+          <Sun size={16} strokeWidth={2} aria-hidden="true" />
+        </span>
+        <span className="pointer-events-none relative ms-0.5 flex min-w-8 items-center justify-center text-center peer-data-[state=unchecked]:text-muted-foreground/70">
+          <Moon size={16} strokeWidth={2} aria-hidden="true" />
+        </span>
+      </div>
+      <Label htmlFor="switch-12" className="sr-only">
+        Labeled switch
+      </Label>
+    </div>
+  )
+}
+
+type EmailDialogProps = {
+  open: boolean
+  setOpen: (value: boolean) => void
+}
+const EmailDialog = ({ open, setOpen }: EmailDialogProps) => {
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button size="lg" className="hidden md:block rounded-full md:text-base dark:bg-white dark:text-dark">
+          Let&apos;s Talk
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px] bg-white dark:bg-dark dark:text-white">
+        <DialogHeader>
+          <DialogTitle>Let&apos;s Talk</DialogTitle>
+        </DialogHeader>
+        <div className="flex flex-col gap-5">
+          <Input type="text" placeholder="Name" className="p-3 border border-gray-300 rounded-md" />
+          <Input type="email" placeholder="Email" className="p-3 border border-gray-300 rounded-md" />
+          <Textarea placeholder="Message" className="p-3 border border-gray-300 rounded-md" />
+          <Button size="lg" className="dark:bg-white dark:text-dark">
+            Send
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
 
 export default function Navbar() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const [currentPosition, setCurrentPosition] = useState(0);
-  //   const { data: session } = useSession();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setIsNavOpen(false)
-    );
-  }, []);
-
-  useEffect(() => {
-    setIsScrollingUp(false);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleScroll = () => {
-        const position = window.scrollY;
-
-        if (position < 20) {
-          setIsScrollingUp(false);
-        } else if (position < currentPosition) {
-          setIsScrollingUp(true);
-        } else {
-          setIsScrollingUp(false);
-        }
-        setCurrentPosition(position);
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
-  }, [currentPosition]);
+  const [open, setOpen] = React.useState<boolean>(false)
+  const pathname = usePathname()
 
   return (
-    <div
-      //   className={`fixed left-0 right-0 max-w-full flex justify-center rounded-none transition-all duration-300 z-50 ${isScrollingUp || currentPosition < 68 ? "top-0" : "top-[-100px]"
-      //     }`}
-      className="w-full flex justify-center md:py-4"
-    >
-      <header className="container md:px-4 py-4">
-        <nav className="flex items-center justify-between md:px-8 lg:px-14">
-          <div className="md:flex md:space-x-5 lg:space-x-8">
-            <div className="flex items-center md:space-x-2">
-              <Image src={LogoDomsat} alt="Domsat" width={60} height={60} />
-              <span className="text-xl font-semibold">Domsat</span>
-            </div>
-            <div className="hidden md:flex items-center md:px-6 xl:px-8 space-x-6 xl:space-x-8 border-l-2 border-black">
-              <NavList pathname={pathname} />
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <NavSheet
-              isOpen={isNavOpen}
-              handler={setIsNavOpen}
-              pathname={pathname}
-            />
-            <Button
-              size="sm"
-              className="bg-black text-white rounded-full px-4 md:px-6 h-8 md:h-10 md:text-lg mr-3 md:mr-0"
-            >
-              Let's Talk
-            </Button>
-          </div>
-        </nav>
-      </header>
-    </div>
-  );
+    <header className="w-full px-5 md:px-10 py-4">
+      <div className="flex items-center justify-between">
+        <div className="md:flex md:space-x-8">
+          <Link href="/" className="flex items-center space-x-3">
+            <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
+            <span className="text-xl font-semibold">Domsat</span>
+          </Link>
+          <nav className="hidden md:flex items-center space-x-3">
+            <NavList pathname={pathname} />
+          </nav>
+        </div>
+        <div className="flex items-center gap-2">
+          <NavSheet pathname={pathname} />
+          <ToggleDarkMode />
+          <EmailDialog open={open} setOpen={setOpen} />
+        </div>
+      </div>
+    </header>
+  )
 }

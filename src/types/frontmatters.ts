@@ -5,6 +5,7 @@ export type BlogFrontmatter = {
   readingTime: ReadTimeResults;
   slug: string;
   englishOnly?: boolean;
+  author: string;
   title: string;
   description: string;
   banner: string;
@@ -31,6 +32,7 @@ export type BlogType = {
 
 export type LibraryFrontmatter = {
   slug: string;
+  author?: string; 
   title: string;
   readingTime: ReadTimeResults;
   description: string;

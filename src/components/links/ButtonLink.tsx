@@ -2,12 +2,9 @@ import clsx from 'clsx';
 
 import UnstyledLink, { UnstyledLinkProps } from './UnstyledLink';
 
-enum ButtonVariant {
-  'default',
-}
 
 export type ButtonLinkProps = {
-  variant?: keyof typeof ButtonVariant;
+  variant?: 'default';
 } & UnstyledLinkProps;
 
 export default function ButtonLink({
