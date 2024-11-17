@@ -5,12 +5,12 @@ import FAQ from "@/components/section/faq.section";
 import CTA from "@/components/section/cta.section";
 export default function Home() {
   return (
-    <>
+    <div>
       <Hero />
       <Service />
       <Testimonials />
       <FAQ />
       <CTA />
-    </>
+    </div>
   );
 }

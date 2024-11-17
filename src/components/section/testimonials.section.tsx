@@ -16,7 +16,7 @@ import { AboutServices, AboutServicesProps } from "@/constants/AboutServices";
 
 const Testimonials = () => {
   return (
-    <SectionWrapper className="py-10 md:py-20 bg-white flex flex-col items-center justify-center space-y-6 md:space-y-10">
+    <SectionWrapper className="py-10 md:py-20 flex flex-col items-center justify-center space-y-6 md:space-y-10">
       <div className="mx-auto text-center space-y-3 md:space-y-4 px-4 md:px-0">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex justify-center items-center">
           Our Clients{" "}

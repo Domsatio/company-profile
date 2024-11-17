@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import Layout from "@/components/Layout";
+import { ThemeProvider } from 'next-themes';
+
+import "../styles/globals.css";
+import "../styles/mdx.css"
+// import "../styles/carbon.css";
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,9 +37,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Layout>
-          {children}
-        </Layout>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          <Layout>
+            {children}
+          </Layout>
+        </ThemeProvider>
       </body>
     </html>
   );

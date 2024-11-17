@@ -37,7 +37,7 @@ const FooterSection = ({ title, links }: FooterSectionProps) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#35363d] py-10 md:py-16 rounded-t-3xl">
+    <footer className="bg-[#35363d] py-10 md:py-16 rounded-t-3xl dark:bg-dark dark:border-b-transparent dark:border dark:border-white">
       <div className="px-5 md:px-20 space-y-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Brand Section */}
@@ -85,7 +85,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
               >
-                <Button className="rounded-full bg-[#35363d] border border-zinc-400 font-light hover:bg-zinc-800 transition-colors hover:text-zinc-100">
+                <Button className="cursor-newtab rounded-full bg-[#35363d] border border-zinc-400 font-light hover:bg-zinc-800 transition-colors hover:text-zinc-100">
                   <Icon size={20} />
                   {label}
                 </Button>
