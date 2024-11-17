@@ -80,7 +80,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full px-5 md:px-10 py-4">
+    <header className="w-full px-5 md:px-40 py-4">
       <div className="flex items-center justify-between">
         <div className="md:flex md:space-x-8">
           <Link href="/" className="flex items-center space-x-3">

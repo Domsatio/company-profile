@@ -5,7 +5,7 @@ import ListComponent from "./ListComponent";
 import { Separator } from "./ui/separator";
 import { FooterLinkProps, FooterSectionProps, ListFooterLink, ListFooterLinkProps, socialLinks } from "@/constants/Footer";
 import { Button } from "./ui/button";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const FooterLink = ({ label, href }: FooterLinkProps) => (
   <li>
@@ -17,7 +17,7 @@ const FooterLink = ({ label, href }: FooterLinkProps) => (
 
 const FooterSection = ({ title, links }: FooterSectionProps) => (
   <div className="space-y-4">
-    <h3 className="text-sm font-semibold text-zinc-100">
+    <h3 className="text-sm font-semibold text-background">
       {title}
     </h3>
     <ul className="space-y-2 text-sm text-zinc-400">
@@ -37,16 +37,16 @@ const FooterSection = ({ title, links }: FooterSectionProps) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-[#35363d] py-10 md:py-16 rounded-t-3xl">
+    <footer className="bg-primary py-10 md:py-16 rounded-t-3xl mt-6 sm:mt-8 md:mt-10 lg:mx-40">
       <div className="px-5 md:px-20 space-y-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Brand Section */}
           <div className="w-full space-y-7">
             <div className="flex items-center gap-3">
               <Image src={DomsatLogo} alt="Domsat" width={30} height={30} />
-              <span className="text-xl md:text-2xl text-zinc-100 font-semibold">Domsat</span>
+              <span className="text-xl md:text-2xl text-background font-semibold">Domsat</span>
             </div>
-            <div className="space-y-2 text-sm text-zinc-400">
+            <div className="space-y-3 text-sm text-zinc-400">
               <div className="flex gap-3">
                 <MapPin size={18} />
                 <p>Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan <br />
@@ -55,6 +55,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail size={18} />
                 <p>domsattech@gmail.com</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone size={18} />
+                <p>08140261540</p>
               </div>
             </div>
           </div>
@@ -85,7 +89,7 @@ export default function Footer() {
                 href={href}
                 target="_blank"
               >
-                <Button className="rounded-full bg-[#35363d] border border-zinc-400 font-light hover:bg-zinc-800 transition-colors hover:text-zinc-100">
+                <Button className="rounded-full border border-zinc-400 font-light hover:bg-transparent/80 transition-colors">
                   <Icon size={20} />
                   {label}
                 </Button>

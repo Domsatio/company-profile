@@ -1,14 +1,14 @@
 export type ServicesProps = {
   title: string
   body: string
-  points?: string[]
+  points: string[]
 }
 
 export const Services: ServicesProps[] = [
   {
     title: 'Web Development',
     body: 'Create modern, responsive websites and web applications tailored to your business needs.',
-    points: ['React', 'Next.js', 'Node.js', 'WordPress']
+    points: ['React', 'Next.js', 'WordPress', 'Webflow']
   },
   {
     title: 'Mobile Development',
