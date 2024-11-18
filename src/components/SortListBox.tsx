@@ -18,18 +18,18 @@ export default function SortListbox({ selected, setSelected, options }: SortList
   return (
     <div className="w-full max-w-[200px]">
       <Select>
-        <SelectTrigger className="w-[180px]">
-          <SelectValue placeholder={selected.name}/>
+        <SelectTrigger className="w-full">
+          <SelectValue placeholder={selected.name} />
         </SelectTrigger>
         <SelectContent>
-            {options.map((option) => (
-                <SelectItem key={option.id} value={option.name} onClick={() => setSelected(option)}>
-                <div className="flex items-center gap-2">
-                    <option.icon className="w-5 h-5" />
-                    <span>{option.name}</span>
-                </div>
-                </SelectItem>
-            ))}
+          {options.map((option) => (
+            <SelectItem key={option.id} value={option.name} className='cursor-pointer' onClick={() => setSelected(option)}>
+              <div className="flex items-center gap-2">
+                <option.icon className="size-4" />
+                <span>{option.name}</span>
+              </div>
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>

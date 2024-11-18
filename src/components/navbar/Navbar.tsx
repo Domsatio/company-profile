@@ -75,7 +75,7 @@ export default function Navbar() {
         <div className="md:flex md:space-x-8">
           <Link href="/" className="flex items-center space-x-3">
             <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
-            <span className="text-xl font-semibold">Domsat</span>
+            <span className="text-xl font-semibold dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Domsat</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-3">
             <NavList pathname={pathname} />
