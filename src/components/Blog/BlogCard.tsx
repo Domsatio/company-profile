@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { format } from "date-fns";
 import * as React from "react";
-import { HiOutlineClock, HiOutlineEye, HiOutlineUser } from 'react-icons/hi';
+import { HiOutlineClock, HiOutlineUser } from 'react-icons/hi';
 
 import Accent from "@/components/Accent";
 import Tag from "@/components/Tag";

@@ -15,7 +15,6 @@ import { format } from 'date-fns'
 import { HiOutlineClock } from 'react-icons/hi'
 import BlogCard from '@/components/blog/BlogCard'
 import ListComponent from '@/components/ListComponent'
-import { SectionWrapper } from '@/components/Layout'
 import { Separator } from '@/components/ui/separator'
 
 // import { cleanBlogPrefix } from '@/lib/helper.client';

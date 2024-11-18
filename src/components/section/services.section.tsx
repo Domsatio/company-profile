@@ -5,7 +5,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from '@/components/ui/card'
 import Pencil from '../../../public/assets/icons/Pencil.svg'
 import OrangeMonitor from '../../../public/assets/icons/OrangeMonitor.svg'
-import BlackMonitor from '../../../public/assets/icons/BlackMonitor.svg'
 import Rocket from '../../../public/assets/icons/Rocket.svg'
 import { Services, ServicesProps } from '@/constants/Services'
 
