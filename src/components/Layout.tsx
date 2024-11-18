@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 import Footer from "./Footer";
 import { cn } from "@/lib/utils";
 import BackToTop from "./BackToTop";
@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <Navbar />
-      <main className="w-full lg:px-40">
+      <main className="w-full md:px-10 lg:px-40">
         {children}
       </main>
       <Footer />

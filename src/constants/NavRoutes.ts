@@ -5,10 +5,6 @@ export type NavRoutesProps = {
 
 export const NavRoutes: NavRoutesProps[] = [
   {
-    label: 'Home',
-    href: '/'
-  },
-  {
     label: 'Blog',
     href: '/blog'
   },

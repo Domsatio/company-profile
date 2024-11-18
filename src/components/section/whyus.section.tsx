@@ -31,17 +31,17 @@ const Testimonials = () => {
         </p>
       </div>
       <div className="w-full h-96 grid grid-cols-3 gap-4">
-        <div className="border border-primary/50 text-primary hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp className="w-10 h-10" />
+        <div className="border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
+          <ThumbsUp size={40} />
         </div>
-        <div className="border border-primary/50 text-primary hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp className="w-10 h-10" />
+        <div className="border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
+          <ThumbsUp size={40} />
         </div>
-        <div className="row-span-2 border border-primary/50 text-primary hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp className="w-10 h-10" />
+        <div className="row-span-2 border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
+          <ThumbsUp size={40} />
         </div>
-        <div className="col-span-2 border border-primary/50 text-primary hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp className="w-10 h-10" />
+        <div className="col-span-2 border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
+          <ThumbsUp size={40} />
         </div>
       </div>
     </SectionWrapper>

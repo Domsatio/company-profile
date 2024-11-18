@@ -17,7 +17,7 @@ const FooterLink = ({ label, href }: FooterLinkProps) => (
 
 const FooterSection = ({ title, links }: FooterSectionProps) => (
   <div className="space-y-4">
-    <h3 className="text-sm font-semibold text-background">
+    <h3 className="text-sm font-semibold text-white">
       {title}
     </h3>
     <ul className="space-y-2 text-sm text-zinc-400">
@@ -37,14 +37,14 @@ const FooterSection = ({ title, links }: FooterSectionProps) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-primary py-10 md:py-16 rounded-t-3xl mt-6 sm:mt-8 md:mt-10 lg:mx-40">
-      <div className="px-5 md:px-20 space-y-8">
+    <footer className="bg-zinc-800 dark:bg-background py-10 md:py-16 rounded-t-3xl mt-6 sm:mt-8 md:mt-10 md:mx-10 lg:mx-40">
+      <div className="px-5 md:px-20 dark:md:px-0 space-y-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           {/* Brand Section */}
           <div className="w-full space-y-7">
             <div className="flex items-center gap-3">
               <Image src={DomsatLogo} alt="Domsat" width={30} height={30} />
-              <span className="text-xl md:text-2xl text-background font-semibold">Domsat</span>
+              <span className="text-xl md:text-2xl text-white font-semibold">Domsat</span>
             </div>
             <div className="space-y-3 text-sm text-zinc-400">
               <div className="flex gap-3">
@@ -88,8 +88,9 @@ export default function Footer() {
                 key={label}
                 href={href}
                 target="_blank"
+                className="cursor-newtab"
               >
-                <Button className="rounded-full border border-zinc-400 font-light hover:bg-transparent/80 transition-colors">
+                <Button className="bg-transparent rounded-full border border-zinc-400 text-white font-light hover:bg-transparent/20 shadow-none cursor-newtab">
                   <Icon size={20} />
                   {label}
                 </Button>

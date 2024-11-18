@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import Layout from "@/components/Layout";
+import { ThemeProvider } from "next-themes";
+import "./globals.css";
+import "../styles/mdx.css"
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,7 +21,7 @@ export const metadata: Metadata = {
   title: "Domsat - Crafted with Passion and Precision",
   description: "Domsat Company Profile",
   icons: {
-    icon: "/assets/images/Domsat.svg",
+    icon: "/assets/images/Favicon.svg",
   }
 };
 
@@ -32,9 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Layout>
-          {children}
-        </Layout>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <Layout>
+            {children}
+          </Layout>
+        </ThemeProvider>
       </body>
     </html>
   );
