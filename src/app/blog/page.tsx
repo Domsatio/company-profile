@@ -4,6 +4,11 @@ import { sortByDate, getTags } from "@/lib/mdx.client";
 import BlogClient from "./blogClient";
 import { SectionWrapper } from "@/components/Layout";
 
+export const metadata = {
+  title: 'Blog',
+  description: 'Blog page'
+};
+
 export default async function page() {
   const files = await getAllFilesFrontmatter("blog");
   const posts = sortByDate(files);

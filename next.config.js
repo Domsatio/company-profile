@@ -3,13 +3,11 @@
  */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com'
-      }
-    ]
-  }
+    domains: [
+      'images.unsplash.com',
+    ],
+  },
+  transpilePackages: ['three'],
 }
 
 module.exports = nextConfig
