@@ -13,7 +13,7 @@ import Accent from '@/components/Accent'
 // import CustomLink from '@/components/links/CustomLink'
 import { format } from 'date-fns'
 import { HiOutlineClock } from 'react-icons/hi'
-import BlogCard from '@/components/blog/BlogCard'
+import BlogCard from '@/components/Blog/BlogCard'
 import ListComponent from '@/components/ListComponent'
 import { Separator } from '@/components/ui/separator'
 
