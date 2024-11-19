@@ -7,7 +7,14 @@ const nextConfig = {
       'images.unsplash.com',
     ],
   },
-  transpilePackages: ['three']
+  transpilePackages: ['three'],
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'esbuild': 'esbuild-wasm'
+    }
+    return config
+  }
 }
 
 module.exports = nextConfig
