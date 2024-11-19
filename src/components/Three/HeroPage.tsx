@@ -1,14 +1,6 @@
-const recentPosts = [
-  { id: 1, name: 'Boost your conversion rate', href: '#' },
-  { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
-  { id: 3, name: 'Improve your customer experience', href: '#' }
-]
+import NextImage from 'next/image'
 
-function classNames(...classes: string[]): string {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Example() {
+export default function HeroPage() {
   return (
     <div className="relative bg-gray-50">
       <main>
@@ -40,10 +32,10 @@ export default function Example() {
           </div>
         </div>
         <div className="relative w-full h-72">
-          <img
+          <NextImage
             className="absolute inset-0 w-full h-full object-cover"
             src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
-            alt=""
+            alt="hero image"
           />
         </div>
       </main>

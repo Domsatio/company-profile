@@ -39,33 +39,28 @@ Special Function: `useEffect`
 
 ```tsx /React.useEffect/
 export default function CSRPage() {
-  const [dateTime, setDateTime] = React.useState<string>();
+  const [dateTime, setDateTime] = React.useState<string>()
 
   React.useEffect(() => {
     axios
       .get('https://worldtimeapi.org/api/ip')
       .then((res) => {
-        setDateTime(res.data.datetime);
+        setDateTime(res.data.datetime)
       })
-      .catch((error) => console.error(error));
-  }, []);
+      .catch((error) => console.error(error))
+  }, [])
 
   return (
     <main>
       <TimeSection dateTime={dateTime} />
     </main>
-  );
+  )
 }
 ```
 
 ### Demo
 
-<NextImage
-  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
-  alt='CSR'
-  width={857}
-  height={437}
-/>
+<NextImage src="https://images.unsplash.com/photo-1731360285176-1afe487e06ad" alt="CSR" width={857} height={437} />
 
 Terms:
 
@@ -84,12 +79,11 @@ Video Description:
 3. **Data is fetched on every page request**, which is why the time shown is different for each reloads.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='0-csr-illustration'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="0-csr-illustration"
   width={857}
   height={437}
 />
-
 
 ## Server Side Rendering (SSR)
 
@@ -105,26 +99,21 @@ export default function SSRPage({ dateTime }: SSRPageProps) {
     <main>
       <TimeSection dateTime={dateTime} />
     </main>
-  );
+  )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get('https://worldtimeapi.org/api/ip');
+  const res = await axios.get('https://worldtimeapi.org/api/ip')
 
   return {
-    props: { dateTime: res.data.datetime },
-  };
-};
+    props: { dateTime: res.data.datetime }
+  }
+}
 ```
 
 ### Demo
 
-<NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='SSR'
-  width={857}
-  height={437}
-/>
+<NextImage src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819" alt="SSR" width={857} height={437} />
 
 Video Description:
 
@@ -137,8 +126,8 @@ Video Description:
 3. **Data is fetched on every page request**, which is why the time shown is different for each reloads.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='1-ssr-illustration'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="1-ssr-illustration"
   width={857}
   height={437}
 />
@@ -149,12 +138,7 @@ Video Description:
 
 Here is the difference between CSR vs SSR, keep an eye on **delay** and **loading** indicators.
 
-<NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='CSRvsSSR'
-  width={857}
-  height={437}
-/>
+<NextImage src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819" alt="CSRvsSSR" width={857} height={437} />
 
 Video Description:
 
@@ -167,8 +151,8 @@ Video Description:
 2. **SSR hit the API before the page loads.**
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='2-csr-vs-ssr'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="2-csr-vs-ssr"
   width={857}
   height={437}
 />
@@ -195,26 +179,21 @@ export default function SSGPage({ dateTime }: SSGPageProps) {
     <main>
       <TimeSection dateTime={dateTime} />
     </main>
-  );
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get('https://worldtimeapi.org/api/ip');
+  const res = await axios.get('https://worldtimeapi.org/api/ip')
 
   return {
-    props: { dateTime: res.data.datetime },
-  };
-};
+    props: { dateTime: res.data.datetime }
+  }
+}
 ```
 
 ### Demo
 
-<NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='SSG'
-  width={857}
-  height={437}
-/>
+<NextImage src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819" alt="SSG" width={857} height={437} />
 
 Video Description:
 
@@ -228,8 +207,8 @@ Video Description:
 3. **Data will not change because no further fetch**, which is why the time shown is the same for each reloads.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='3-ssg-illustration'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="3-ssg-illustration"
   width={857}
   height={437}
 />
@@ -250,27 +229,22 @@ export default function ISR20Page({ dateTime }: ISR20PageProps) {
     <main>
       <TimeSection dateTime={dateTime} />
     </main>
-  );
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await axios.get('https://worldtimeapi.org/api/ip');
+  const res = await axios.get('https://worldtimeapi.org/api/ip')
 
   return {
     props: { dateTime: res.data.datetime },
-    revalidate: 20,
-  };
-};
+    revalidate: 20
+  }
+}
 ```
 
 ### Demo
 
-<NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='ISR'
-  width={857}
-  height={437}
-/>
+<NextImage src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819" alt="ISR" width={857} height={437} />
 
 Disclaimer: Revalidate time is set to 20 seconds.
 
@@ -289,15 +263,15 @@ Now, this is might be confusing for you, but here is the key I want you to look 
    2. Second Full Reload at 16:40:40(RT), the Preview Time change to 16:40:37(PT). Exactly a second after the page rebuild (which means the rebuild takes about 1s). This second reload is going to serve that rebuilt page from the previous reload.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='4-cooldown-on-isr'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="4-cooldown-on-isr"
   width={857}
   height={437}
 />
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='5-cooldown-off-isr'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="5-cooldown-off-isr"
   width={857}
   height={437}
 />
@@ -305,8 +279,8 @@ Now, this is might be confusing for you, but here is the key I want you to look 
 ### Revisiting Page vs Full Reload
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='isr-revisit-reload'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="isr-revisit-reload"
   width={857}
   height={437}
 />
@@ -337,8 +311,8 @@ When the cooldown is off, if no one visits the page, then that page **will not r
 But, the **first** person that visits when the **cooldown state is off**, is going to **trigger a rebuild.** That person won't be seeing changes. But, the changes will be served for **the next full reload**.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1728230516814-a134ddbe2819'
-  alt='6-cooldown-illustration'
+  src="https://images.unsplash.com/photo-1728230516814-a134ddbe2819"
+  alt="6-cooldown-illustration"
   width={857}
   height={437}
 />
@@ -352,10 +326,10 @@ Special function: `res.revalidate(){:ts}`
 ```ts title="pages/api/revalidate.ts" /res.revalidate/
 export default async function handler(req, res) {
   try {
-    await res.revalidate('/path-to-revalidate');
-    return res.json({ revalidated: true });
+    await res.revalidate('/path-to-revalidate')
+    return res.json({ revalidated: true })
   } catch (err) {
-    return res.status(500).send('Error revalidating');
+    return res.status(500).send('Error revalidating')
   }
 }
 ```

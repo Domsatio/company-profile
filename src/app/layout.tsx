@@ -5,8 +5,7 @@ import Layout from '@/components/Layout'
 import { ThemeProvider } from 'next-themes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
-import '../styles/globals.css'
+import './globals.css'
 import '../styles/mdx.css'
 // import "../styles/carbon.css";
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
@@ -26,7 +25,7 @@ const geistMono = localFont({
 //   title: 'Domsat - Crafted with Passion and Precision',
 //   description: 'Domsat Company Profile',
 //   icons: {
-//     icon: '/assets/images/Domsat.svg'
+//     icon: '/assets/images/Favicon.svg'
 //   }
 // }
 
@@ -40,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <QueryClientProvider client={queryClient}>
             <Layout>{children}</Layout>
             <ReactQueryDevtools />

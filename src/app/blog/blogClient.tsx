@@ -100,17 +100,16 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
   }
 
   return (
-    <div className="mx-auto">
+    <div className='space-y-4'>
       <StyledInput
         data-fade="2"
-        className="mt-4"
         placeholder="Search..."
         onChange={handleSearch}
         value={search}
         type="text"
       />
       <div
-        className="mt-2 flex flex-wrap items-baseline justify-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+        className="flex flex-wrap items-baseline justify-start gap-2 text-sm text-foreground/80 dark:text-zinc-400"
         data-fade="3"
       >
         <span className="font-medium">Choose topic:</span>
@@ -123,21 +122,22 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
         </SkipNavTag>
       </div>
       <div
-        className="relative z-10 mt-6 flex flex-col items-end gap-4 text-gray-600 dark:text-gray-300 md:flex-row md:items-center md:justify-between"
+        className="relative z-10 flex flex-col items-end gap-4 md:flex-row md:items-center md:justify-between"
         data-fade="4"
       >
         <Button
+          // variant=""
+          className="text-sm !font-medium"
           onClick={() => {
             setIsEnglish((b) => !b)
             clearSearch()
           }}
-          className="text-sm !font-medium"
         >
           Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
         </Button>
         <SortListbox selected={sortOrder} setSelected={setSortOrder} options={sortOptions} />
       </div>
-      <ul className="container mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mb-10" data-fade="5">
+      <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-fade="5">
         {currentPosts.length > 0 ? (
           <ListComponent
             data={currentPosts}

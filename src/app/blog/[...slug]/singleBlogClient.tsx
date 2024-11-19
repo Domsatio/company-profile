@@ -15,6 +15,7 @@ import { format } from 'date-fns'
 import { HiOutlineClock } from 'react-icons/hi'
 import BlogCard from '@/components/Blog/BlogCard'
 import ListComponent from '@/components/ListComponent'
+import { Separator } from '@/components/ui/separator'
 
 // import { cleanBlogPrefix } from '@/lib/helper.client';
 
@@ -46,24 +47,24 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
   }, [frontmatter.slug])
 
   return (
-    <div>
-      <main className="relative max-w-7xl mx-auto mb-10">
-        <div className="pb-4 dark:border-gray-600">
-          <NextImage
-            src={frontmatter.banner}
-            alt={`Photo from unsplash: ${frontmatter.banner}`}
-            className="w-full h-[500px]"
-            imgClassName="w-full h-full object-cover rounded-lg"
-            width={1200}
-            height={300}
-          />
+    <div className='px-5 md:px-0 pt-0 pb-10 md:pt-0 md:pb-20'>
+      {/* Banner & Description */}
+      <div>
+        <NextImage
+          src={frontmatter.banner}
+          alt={`Photo from unsplash: ${frontmatter.banner}`}
+          className="w-full h-[500px]"
+          imgClassName="w-full h-full object-cover rounded-lg"
+          width={1200}
+          height={300}
+        />
 
-          <h1 className="mt-4">{frontmatter.title}</h1>
+        <h1 className="mt-4">{frontmatter.title}</h1>
 
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Written on {format(new Date(frontmatter.publishedAt), 'MMMM dd, yyyy')} by {frontmatter.author}.
-          </p>
-          {/* {frontmatter.lastUpdated && (
+        <p className="mt-2 text-sm text-foreground/80 dark:text-zinc-400">
+          Written on {format(new Date(frontmatter.publishedAt), 'MMMM dd, yyyy')} by {frontmatter.author}.
+        </p>
+        {/* {frontmatter.lastUpdated && (
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">
               <p>Last updated {format(new Date(frontmatter.lastUpdated), 'MMMM dd, yyyy')}.</p>
               <UnstyledLink
@@ -79,12 +80,12 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
               </UnstyledLink>
             </div>
           )} */}
-          <div className="mt-6 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
-            <div className="flex items-center gap-1">
-              <HiOutlineClock className="inline-block text-base" />
-              <Accent>{frontmatter.readingTime.text}</Accent>
-            </div>
-            {/* {meta?.devtoViews ? (
+        <div className="mt-6 flex items-center justify-start gap-2 text-sm font-medium text-foreground/80 dark:text-zinc-400">
+          <div className="flex items-center gap-1">
+            <HiOutlineClock className="inline-block text-base" />
+            <Accent>{frontmatter.readingTime.text}</Accent>
+          </div>
+          {/* {meta?.devtoViews ? (
               <Tooltip
                 tipChildren={
                   <>
@@ -105,41 +106,42 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
                 <Accent>{meta?.views?.toLocaleString() ?? '–––'} views</Accent>
               </div>
             )} */}
-          </div>
-          {/* {!frontmatter?.englishOnly && (
+        </div>
+        {/* {!frontmatter?.englishOnly && (
             <CustomLink href={`/blog/${isEnglish ? 'id-' : ''}${cleanSlug}`} className="mt-4">
               Read in {isEnglish ? 'Bahasa Indonesia' : 'English'}
             </CustomLink>
           )} */}
-        </div>
+      </div>
 
-        <hr className="dark:border-gray-600" />
-        <section className="lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-          <article className="mdx prose mt-4 transition-colors dark:prose-invert">
-            <Component
-              components={
-                {
-                  ...MDXComponents
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                } as any
-              }
-            />
-          </article>
+      <Separator className='mt-4' />
 
-          <aside className="py-4">
-            <div className="sticky top-36">
-              <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
-            </div>
-          </aside>
-        </section>
+      <section className="mt-4 lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
+        <article className="mdx prose transition-colors dark:prose-invert">
+          <Component
+            components={
+              {
+                ...MDXComponents
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              } as any
+            }
+          />
+        </article>
 
-        <figure className="mt-12">
-          <Comment key={frontmatter.slug} />
-        </figure>
+        <aside>
+          <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+        </aside>
+      </section>
 
-        <h2 className="mt-10 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Recommendations</h2>
+      {/* GitHub Comment */}
+      <figure className='mt-10'>
+        <Comment key={frontmatter.slug} />
+      </figure>
 
-        <ul className="container mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3 mb-10" data-fade="5">
+      {/* Recommendations */}
+      <div className='mt-10 space-y-4'>
+        <h2 className="dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Recommendations</h2>
+        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-fade="5">
           <ListComponent
             data={recommendations}
             renderItem={(post: BlogFrontmatter) => <BlogCard key={post.slug} post={post} />}
@@ -148,11 +150,10 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
         currentPosts.map((post) => (
         ))
         ) : (
-        <ContentPlaceholder />
-        )} */}
+          <ContentPlaceholder />
+          )} */}
         </ul>
-
-      </main>
+      </div>
     </div>
   )
 }

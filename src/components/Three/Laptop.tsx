@@ -3,20 +3,11 @@ import * as THREE from 'three'
 import React, { Suspense, useRef } from 'react'
 import {
   Canvas,
-  Euler,
-  ExtendedColors,
-  Layers,
-  Matrix4,
-  NodeProps,
-  Overwrite,
-  Quaternion,
   useFrame,
-  Vector3,
   GroupProps
 } from '@react-three/fiber'
 import { Html, Environment, useGLTF, ContactShadows, OrbitControls } from '@react-three/drei'
 import HeroPage from './HeroPage'
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events'
 
 function Model(props: JSX.IntrinsicAttributes & GroupProps) {
     const group = useRef<THREE.Group>(null!)
@@ -42,7 +33,7 @@ function Model(props: JSX.IntrinsicAttributes & GroupProps) {
           <mesh material={materials['matte.001']} geometry={(nodes['Cube008_1'] as THREE.Mesh).geometry} />
           <mesh geometry={(nodes['Cube008_2'] as THREE.Mesh).geometry}>
             {/* Drei's HTML component can "hide behind" canvas geometry */}
-            <Html className="content overflow-hidden" rotation-x={-Math.PI / 2} position={[0.15, 0.08, -0.45]} transform occlude>
+            <Html className="content overflow-hidden" rotation-x={-Math.PI / 2} position={[0.17, 0.08, -0.1]} transform occlude>
               <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
                 <HeroPage />
               </div>

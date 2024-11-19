@@ -1,6 +1,5 @@
-import { ArrowUpRight, Flame } from 'lucide-react'
+import { Flame } from 'lucide-react'
 import { SectionWrapper } from '../Layout'
-import { Button } from '../ui/button'
 import Laptop from '../Three/Laptop'
 
 const Hero = () => {

@@ -22,8 +22,8 @@ But, in Next.js, we get the static page first, then only after finishing the hyd
 I saw a lot of this problem even in the production app, maybe they still cover up the data because some of it was fetched client-side, but the shell sometimes still shows up. Try opening this website [app.splitbee.io/projects](https://app.splitbee.io/projects/theodorusclarence.com). You are not supposed to have access to this page. You will see a flash of the dashboard shell then only after that flash, you will get redirected to the login page.
 
 <NextImage
-  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
-  alt='splitbee'
+  src="https://images.unsplash.com/photo-1731360285176-1afe487e06ad"
+  alt="splitbee"
   width={1590}
   height={896}
 />
@@ -43,31 +43,31 @@ There are 2 approach that I found.
 ### 1. Checking on every single page
 
 ```jsx
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useAuth } from '@/contexts/auth';
-import FullPageLoader from '@/components/FullPageLoader';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useAuth } from '@/contexts/auth'
+import FullPageLoader from '@/components/FullPageLoader'
 
 export default function blocked() {
-  const router = useRouter();
+  const router = useRouter()
 
-  const { isAuthenticated, user, logout, isLoading } = useAuth();
+  const { isAuthenticated, user, logout, isLoading } = useAuth()
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push('/');
+      router.push('/')
     }
-  }, [isAuthenticated, isLoading]);
+  }, [isAuthenticated, isLoading])
 
   if (isLoading || !isAuthenticated) {
-    return <FullPageLoader />;
+    return <FullPageLoader />
   }
 
   return (
-    <div className='layout space-y-4 py-12'>
+    <div className="layout space-y-4 py-12">
       <h1>YOUR CONTENT THAT SHOULD NOT BE SEEN UNLESS AUTHENTICATED</h1>
     </div>
-  );
+  )
 }
 ```
 
@@ -84,30 +84,30 @@ This pattern will effectively block the content that we don't want to give to un
 ### 2. Using PrivateRoute Component
 
 ```jsx
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
-import { useAuth } from '@/contexts/auth';
-import FullPageLoader from './FullPageLoader';
+import { useAuth } from '@/contexts/auth'
+import FullPageLoader from './FullPageLoader'
 
 export default function PrivateRoute({ protectedRoutes, children }) {
-  const router = useRouter();
-  const { isAuthenticated, isLoading } = useAuth();
+  const router = useRouter()
+  const { isAuthenticated, isLoading } = useAuth()
 
-  const pathIsProtected = protectedRoutes.indexOf(router.pathname) !== -1;
+  const pathIsProtected = protectedRoutes.indexOf(router.pathname) !== -1
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated && pathIsProtected) {
       // Redirect route, you can point this to /login
-      router.push('/');
+      router.push('/')
     }
-  }, [isLoading, isAuthenticated, pathIsProtected]);
+  }, [isLoading, isAuthenticated, pathIsProtected])
 
   if ((isLoading || !isAuthenticated) && pathIsProtected) {
-    return <FullPageLoader />;
+    return <FullPageLoader />
   }
 
-  return children;
+  return children
 }
 ```
 
@@ -116,14 +116,14 @@ By using this component, we can specify the routes that we want to protect in \_
 ```js
 //_app.js
 
-import SEO from '@/next-seo.config';
-import '@/styles/globals.css';
-import { AuthProvider } from '@/contexts/auth';
-import PrivateRoute from '@/components/PrivateRoute';
+import SEO from '@/next-seo.config'
+import '@/styles/globals.css'
+import { AuthProvider } from '@/contexts/auth'
+import PrivateRoute from '@/components/PrivateRoute'
 
 function MyApp({ Component, pageProps }) {
   // Add your protected routes here
-  const protectedRoutes = ['/blocked-component'];
+  const protectedRoutes = ['/blocked-component']
 
   return (
     <>
@@ -133,10 +133,10 @@ function MyApp({ Component, pageProps }) {
         </PrivateRoute>
       </AuthProvider>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
 ```
 
 > I'm open for all suggestions and contributions to improve 🚀. Open a PR on the repository or email me at me@theodorusclarence.com
@@ -146,8 +146,8 @@ export default MyApp;
 ### 1. Without using full page loader & not authenticated `/blocked-unhandled`
 
 <NextImage
-  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
-  alt='blocked-unhandled'
+  src="https://images.unsplash.com/photo-1731360285176-1afe487e06ad"
+  alt="blocked-unhandled"
   width={1440}
   height={852}
 />
@@ -156,20 +156,15 @@ As you can see, the red text is still flashed briefly
 
 ### 2. Using full page loader & not authenticated `/blocked-component`
 
-<NextImage
-  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
-  alt='blocked'
-  width={1440}
-  height={852}
-/>
+<NextImage src="https://images.unsplash.com/photo-1731360285176-1afe487e06ad" alt="blocked" width={1440} height={852} />
 
 Using full page loader, no content will be flashed
 
 ### 3. Using full page loader & authenticated by checking the token
 
 <NextImage
-  src='https://images.unsplash.com/photo-1731360285176-1afe487e06ad'
-  alt='blocked-token'
+  src="https://images.unsplash.com/photo-1731360285176-1afe487e06ad"
+  alt="blocked-token"
   width={1440}
   height={852}
 />

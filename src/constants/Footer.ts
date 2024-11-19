@@ -1,4 +1,4 @@
-import { SiInstagram, SiLinkedin, SiX } from '@icons-pack/react-simple-icons'
+import { SiInstagram, SiLinkedin, SiX } from 'react-icons/si'
 
 export type FooterLinkProps = {
   label: string

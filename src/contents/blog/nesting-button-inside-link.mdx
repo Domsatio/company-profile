@@ -13,8 +13,8 @@ author: 'Asharul'
 If you have ever used Linear. You might notice that they use a link for their kanban item
 
 <NextImage
-  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
-  alt='Linear kanban is using a link for the their kanban item'
+  src="https://images.unsplash.com/photo-1729236401289-7428566526d6"
+  alt="Linear kanban is using a link for the their kanban item"
   width={500}
   height={527}
 />
@@ -22,7 +22,7 @@ If you have ever used Linear. You might notice that they use a link for their ka
 But it’s also interactable
 
 <NextImage
-  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
+  src="https://images.unsplash.com/photo-1729236401289-7428566526d6"
   alt="Linear kanban has button inside a link that's interactable"
   width={400}
   height={343}
@@ -52,7 +52,7 @@ Note: My examples is going to use React. But it will be the same with any framew
 It’s quite natural to reach to this solution using markup
 
 ```jsx
-<a href='https://domsat.co.id'>
+<a href="https://domsat.co.id">
   hello this is a link
   <button onClick={open}>open combobox</button>
 </a>
@@ -65,7 +65,7 @@ However, you’re gonna get quickly disappointed because when you have a button 
 You can actually stop the `<a>` from redirecting by using `e.preventDefault` .
 
 ```jsx
-<a href='https://domsat.co.id' onClick={(e) => e.preventDefault()}>
+<a href="https://domsat.co.id" onClick={(e) => e.preventDefault()}>
   hello this is a link
   <button onClick={() => alert('open combobox')}>open combobox</button>
 </a>
@@ -77,15 +77,14 @@ That means, we can selectively prevent the default behavior when we are clicking
 
 ```tsx
 <a
-  href='https://domsat.co.id'
+  href="https://domsat.co.id"
   onClick={(e) => {
     if (e.target instanceof HTMLElement && e.target.tagName === 'BUTTON') {
-      e.preventDefault();
+      e.preventDefault()
     }
   }}
 >
-  hello this is a link{' '}
-  <button onClick={() => alert('open combobox')}>(open combobox)</button>
+  hello this is a link <button onClick={() => alert('open combobox')}>(open combobox)</button>
 </a>
 ```
 
@@ -99,17 +98,17 @@ This is where another problem comes.
 
 ```tsx
 <a
-  href='https://domsat.co.id'
+  href="https://domsat.co.id"
   onClick={(e) => {
     if (e.target instanceof HTMLElement && e.target.tagName === 'BUTTON') {
-      e.preventDefault();
+      e.preventDefault()
     }
   }}
 >
   hello this is a link{' '}
   <button onClick={() => alert('open combobox')}>
-    <svg width='12' height='12' viewBox='0 0 12 12'>
-      <circle cx='6' cy='6' r='6' fill='currentColor' />
+    <svg width="12" height="12" viewBox="0 0 12 12">
+      <circle cx="6" cy="6" r="6" fill="currentColor" />
     </svg>
   </button>
 </a>
@@ -120,8 +119,8 @@ It doesn’t work.
 If your button has svg inside, when we are checking the `e.target.tagName` it won’t detect as a button since we are actually clicking on the SVG element itself (`circle`)
 
 <NextImage
-  src='https://images.unsplash.com/photo-1729236401289-7428566526d6'
-  alt='CleanShot'
+  src="https://images.unsplash.com/photo-1729236401289-7428566526d6"
+  alt="CleanShot"
   width={500}
   height={358}
 />
@@ -131,38 +130,35 @@ If your button has svg inside, when we are checking the `e.target.tagName` it wo
 The solution is to do a recursive check up to the parent.
 
 ```tsx
-const checkIgnoreNestedLink = React.useCallback(
-  (e: React.MouseEvent<HTMLAnchorElement>) => {
-    let cur = e.target as HTMLElement;
+const checkIgnoreNestedLink = React.useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+  let cur = e.target as HTMLElement
 
-    while (cur) {
-      if (cur.dataset?.ignoreNestedLink) {
-        return true;
-      }
-
-      if (cur.parentElement) {
-        cur = cur.parentElement;
-      } else {
-        break;
-      }
+  while (cur) {
+    if (cur.dataset?.ignoreNestedLink) {
+      return true
     }
 
-    return false;
-  },
-  []
-);
+    if (cur.parentElement) {
+      cur = cur.parentElement
+    } else {
+      break
+    }
+  }
+
+  return false
+}, [])
 
 return (
   <button
     onClick={(e) => {
       if (checkIgnoreNestedLink(e)) {
-        e.preventDefault();
+        e.preventDefault()
       }
     }}
   >
     <svg />
   </button>
-);
+)
 ```
 
 This code will ensure that we check all of the element that we click, as well as all of the parent elements until we found `data-ignore-nested-link`.
