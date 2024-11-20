@@ -4,7 +4,7 @@ import Laptop from '../Three/Laptop'
 
 const Hero = () => {
   return (
-    <SectionWrapper className="min-h-dvh rounded-t-3xl flex items-center justify-center dark:text-white">
+    <SectionWrapper className="min-h-dvh flex justify-center dark:text-white md:py-10">
       <div className="-space-y-10">
         <div className="text-center space-y-8">
           <div className="inline-flex items-center rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm">
@@ -37,7 +37,7 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="relative">
+        <div className="flex justify-center">
           <Laptop />
         </div>
         {/* <Button variant="outline" className="h-12 sm:h-14 w-40 sm:w-48 rounded-full font-semibold text-base sm:text-lg">

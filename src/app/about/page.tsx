@@ -9,6 +9,14 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Mail, MapPin, Phone } from "lucide-react";
 
+export const metadata = {
+  title: 'About',
+  description: 'About page',
+  icons: {
+    icon: '/assets/images/Favicon.svg'
+  }
+};
+
 const About = () => {
   return (
     <SectionWrapper className="flex flex-col px-4 md:px-0 md:py-10">

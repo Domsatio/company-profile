@@ -6,7 +6,10 @@ import { SectionWrapper } from "@/components/Layout";
 
 export const metadata = {
   title: 'Blog',
-  description: 'Blog page'
+  description: 'Blog page',
+  icons: {
+    icon: '/assets/images/Favicon.svg'
+  }
 };
 
 export default async function page() {
