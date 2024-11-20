@@ -11,24 +11,24 @@ import {
   ContentType,
   InjectedMeta,
   PickFrontmatter,
-} from '@/types/frontmatters';
+} from '@/types/frontmatter.type';
 
 export default function useInjectContentMeta<T extends ContentType>(
-    type: T,
-    frontmatter: Array<PickFrontmatter<T>>
+  type: T,
+  frontmatter: Array<PickFrontmatter<T>>
 ) {
-    const { data: contentMeta, error } = useQuery({
+  const { data: contentMeta, error } = useQuery({
     queryKey: ['contents'],
     queryFn: getContentMeta,
     enabled: contentMetaFlag,
-});
-const isLoading = !error && !contentMeta;
-const meta = React.useMemo(
+  });
+  const isLoading = !error && !contentMeta;
+  const meta = React.useMemo(
     () => pickContentMeta(contentMeta, type),
     [contentMeta, type]
-);
+  );
 
-type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
+  type PopulatedContent = Array<PickFrontmatter<T> & InjectedMeta>;
 
   const [populatedContent, setPopulatedContent] =
     React.useState<PopulatedContent>(

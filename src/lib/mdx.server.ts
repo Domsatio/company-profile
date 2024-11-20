@@ -10,7 +10,7 @@ import remarkGfm from 'remark-gfm'
 
 import { sortByDate } from '@/lib/mdx.client'
 
-import { ContentType, Frontmatter, PickFrontmatter } from '@/types/frontmatters'
+import { ContentType, Frontmatter, PickFrontmatter } from '@/types/frontmatter.type'
 
 export async function getFileSlugArray(type: ContentType) {
   return getFileList(join(process.cwd(), 'src', 'contents', type)).then((paths) =>

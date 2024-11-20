@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import { BlogFrontmatter, BlogType } from '@/types/frontmatters'
+import { BlogFrontmatter, BlogType } from '@/types/frontmatter.type'
 import MDXComponents from '@/components/content/MDXcomponents'
 import TableOfContents, { HeadingScrollSpy } from '@/components/content/TableOfContents'
 import useScrollSpy from '@/hooks/useScrollspr'
@@ -47,7 +47,7 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
   }, [frontmatter.slug])
 
   return (
-    <div className='px-5 md:px-0 pt-0 pb-10 md:pt-0 md:pb-20'>
+    <div className='px-5 md:px-0 py-10'>
       {/* Banner & Description */}
       <div>
         <NextImage

@@ -9,7 +9,7 @@ import NextImage from "../NextImage";
 // import CloudinaryImg from '@/components/images/CloudinaryImg';
 import UnstyledLink from "@/components/links/UnstyledLink";
 
-import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatters";
+import { BlogFrontmatter, InjectedMeta } from "@/types/frontmatter.type";
 
 type BlogCardProps = {
   post: BlogFrontmatter & InjectedMeta;
