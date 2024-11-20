@@ -24,7 +24,7 @@ const Service = () => {
         </div>
       </div>
       <div className="w-full flex justify-center md:justify-around md:space-x-10 px-4 md:px-5 lg:px-0">
-        <div className="relative flex justify-center md:justify-start basis-full lg:basis-4/5">
+        <div className="relative flex justify-center md:justify-start">
           <Carousel
             orientation="custom"
             opts={{
@@ -37,9 +37,9 @@ const Service = () => {
                 data={Services}
                 renderItem={(item: ServicesProps) => {
                   return (
-                    <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-2/5">
+                    <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3">
                       <Card className='h-[375px] rounded-[30px] md:rounded-[40px] border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
-                        <CardContent className="flex flex-col justify-between h-full p-4 sm:p-10">
+                        <CardContent className="flex flex-col justify-between h-full p-4 sm:p-6">
                           <div className="space-y-2">
                             <Image
                               src={OrangeMonitor}
