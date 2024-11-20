@@ -6,7 +6,7 @@ import {
 } from "@/lib/mdx.server";
 import { ParsedUrlQuery } from "querystring";
 import SingleBlogClient from "./singleBlogClient";
-import { BlogType } from "@/types/frontmatters";
+import { BlogType } from "@/types/frontmatter.type";
 
 interface Params extends ParsedUrlQuery {
   slug: string[];

@@ -94,14 +94,14 @@ export const accordionItems: Record<string, AccordionItemProps[]> = {
       icon: Laptop,
       title: 'What technologies do you work with?',
       content:
-        'We work with a wide range of technologies including JavaScript, TypeScript, React, Angular, Node.js, Python, Django, Ruby on Rails, Java, Kotlin, Swift, and more. Our team stays updated with the latest trends and tools to deliver cutting-edge solutions.'
+        'We work with a wide range of technologies including JavaScript, TypeScript, React, Node.js, and more. Our team stays updated with the latest trends and tools to deliver cutting-edge solutions.'
     },
     {
       id: '2',
       icon: Smartphone,
       title: 'Do you provide mobile app development services?',
       content:
-        'Yes, we specialize in mobile app development for iOS and Android platforms. Our team has experience building native, hybrid, and cross-platform apps using technologies like React Native, Flutter, and Xamarin.'
+        'Yes, we specialize in mobile app development for iOS and Android platforms. Our team has experience building native, hybrid, and cross-platform apps using technologies like React Native and Flutter.'
     },
     {
       id: '3',

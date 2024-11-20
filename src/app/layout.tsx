@@ -1,5 +1,4 @@
 'use client'
-// import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Layout from '@/components/Layout'
 import { ThemeProvider } from 'next-themes'
@@ -20,14 +19,6 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900'
 })
-
-// export const metadata: Metadata = {
-//   title: 'Domsat - Crafted with Passion and Precision',
-//   description: 'Domsat Company Profile',
-//   icons: {
-//     icon: '/assets/images/Favicon.svg'
-//   }
-// }
 
 const queryClient = new QueryClient();
 

@@ -47,7 +47,7 @@ const NavList = ({ onClick, pathname, isUseSheetClose = false }: NavListProps) =
   />
 )
 
-const NavSheet = ({ pathname }: { pathname: string }) => (
+const NavSheet = ({ pathname, open, setOpen }: { pathname: string, open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => (
   <Sheet defaultOpen={false}>
     <SheetTrigger className="md:hidden" asChild>
       <Button variant="ghost" size="icon">
@@ -60,6 +60,7 @@ const NavSheet = ({ pathname }: { pathname: string }) => (
       </SheetHeader>
       <div className="flex flex-col gap-5 mt-5">
         <NavList pathname={pathname} isUseSheetClose={true} />
+        <ContactForm open={open} setOpen={setOpen} />
       </div>
     </SheetContent>
   </Sheet>
@@ -70,20 +71,20 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="w-full px-5 md:px-10 lg:px-40 py-4">
-      <div className="flex items-center justify-between">
-        <div className="md:flex md:space-x-8">
-          <Link href="/" className="flex items-center space-x-3">
-            <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
-            <span className="text-xl font-semibold dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Domsat</span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-3">
-            <NavList pathname={pathname} />
-          </nav>
-        </div>
-        <div className="flex items-center gap-2">
-          <NavSheet pathname={pathname} />
-          <ToggleDarkMode />
+    <header className="px-5 py-4 flex items-center justify-between">
+      <div className="md:flex md:space-x-8">
+        <Link href="/" className="flex items-center space-x-3">
+          <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
+          <span className="text-xl font-semibold dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Domsat</span>
+        </Link>
+        <nav className="hidden md:flex items-center space-x-3">
+          <NavList pathname={pathname} />
+        </nav>
+      </div>
+      <div className="flex items-center gap-2">
+        <NavSheet pathname={pathname} open={open} setOpen={setOpen} />
+        <ToggleDarkMode />
+        <div className="hidden md:block">
           <ContactForm open={open} setOpen={setOpen} />
         </div>
       </div>

@@ -3,7 +3,7 @@ import map from 'lodash/map'
 import sortBy from 'lodash/sortBy'
 import toPairs from 'lodash/toPairs'
 
-import { Frontmatter, FrontmatterWithDate, FrontmatterWithTags } from '@/types/frontmatters'
+import { Frontmatter, FrontmatterWithDate, FrontmatterWithTags } from '@/types/frontmatter.type'
 
 export function sortDateFn<T extends FrontmatterWithDate>(contentA: T, contentB: T) {
   return (

@@ -13,16 +13,16 @@ export const SectionWrapper = ({
   children,
   ...rest
 }: SectionWrapperProps) => (
-  <section className={cn(["w-full p-10 md:py-20 gap-4 md:gap-8", className])} {...rest}>
+  <section className={cn(["px-5 md:px-0 py-10 md:py-20 gap-4 md:gap-8", className])} {...rest}>
     {children}
   </section>
 );
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className="font-[family-name:var(--font-geist-sans)] md:px-10 lg:px-40">
       <Navbar />
-      <main className="w-full md:px-10 lg:px-40">
+      <main className="min-h-screen">
         {children}
       </main>
       <Footer />

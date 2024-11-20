@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { SectionWrapper } from "@/components/Layout";
 import {
   Breadcrumb,
@@ -9,13 +10,13 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Mail, MapPin, Phone } from "lucide-react";
 
-export const metadata = {
-  title: 'About',
-  description: 'About page',
+export const metadata: Metadata = {
+  title: 'About | Domsat - Crafted with Passion and Precision',
+  description: 'About | Domsat Company Profile',
   icons: {
     icon: '/assets/images/Favicon.svg'
   }
-};
+}
 
 const About = () => {
   return (

@@ -47,7 +47,7 @@ const ContactForm: FC<ContactFormProps> = ({ open, setOpen }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button size="lg" className="hidden md:block rounded-full md:text-base">
+        <Button size="lg" className="block rounded-full md:text-base">
           Let&apos;s Talk
         </Button>
       </DialogTrigger>

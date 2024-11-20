@@ -1,7 +1,7 @@
 'use client'
 import * as React from 'react'
 import ListComponent from '@/components/ListComponent'
-import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatters'
+import { BlogFrontmatter, InjectedMeta } from '@/types/frontmatter.type'
 import BlogCard from '@/components/Blog/BlogCard'
 import { HiCalendar, HiEye } from 'react-icons/hi'
 import SortListbox, { SortOption } from '@/components/SortListBox'

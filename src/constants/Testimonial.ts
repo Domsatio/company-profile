@@ -1,5 +1,5 @@
 import AnasArdiansyah from '../../public/assets/images/Testimonials/anas-ardiansyah.jpg'
-import AsharulMaali from '../../public/assets/images/Testimonials/asharul-maali.jpg'
+import AsharulMaali from '../../public/assets/images/Testimonials/asharul.png'
 import FebrianAndy from '../../public/assets/images/Testimonials/febrian-andy.jpg'
 import RaihanGhassani from '../../public/assets/images/Testimonials/raihan-ghassani.jpg'
 import RagastraHaryono from '../../public/assets/images/Testimonials/ragastra-haryono.png'
@@ -42,7 +42,7 @@ export const Testimonials: TestimonialProps[] = [
     image: RaihanGhassani
   },
   {
-    name: 'Ragastra Haryono',
+    name: 'Ragastra Haryo',
     job: 'Software Engineer',
     statement:
       'Never thought that with Spend.In managing my business expenses is so easy! Been using this platform for 3 months and still counting!',

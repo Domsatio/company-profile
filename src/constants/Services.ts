@@ -13,7 +13,7 @@ export const Services: ServicesProps[] = [
   {
     title: 'Mobile Development',
     body: 'Build native and cross-platform mobile applications that deliver exceptional user experiences.',
-    points: ['iOS', 'Android', 'React Native', 'Flutter']
+    points: ['Android', 'React Native', 'Flutter']
   },
   {
     title: 'UI/UX Design',

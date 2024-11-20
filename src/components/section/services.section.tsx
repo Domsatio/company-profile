@@ -11,69 +11,63 @@ import { Services, ServicesProps } from '@/constants/Services'
 const Service = () => {
   return (
     <SectionWrapper className="flex flex-col items-center justify-center">
-      <div className="max-w-3xl mx-auto text-center space-y-8 px-4 md:px-0">
-        <div className="space-y-2 md:space-y-4">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight flex justify-center items-center">
-            Explore <Image src={Rocket} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
-            Our Services
-          </h1>
-          <p className="text-base md:text-lg flex justify-center items-center">
-            We provide a wide range of services to meet your needs
-            <Image src={Pencil} width={40} height={40} alt="Pencil Icon" className="mx-2 hidden md:block" />
-          </p>
-        </div>
+      <div className="self-start md:self-center md:text-center space-y-3 md:space-y-4">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex md:justify-center items-center">
+          Explore <Image src={Rocket} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
+          Our Services
+        </h1>
+        <p className="text-sm sm:text-base md:text-lg flex justify-center items-center">
+          We provide a wide range of services to meet your needs.
+          <Image src={Pencil} width={40} height={40} alt="Pencil Icon" className="mx-2 hidden md:block" />
+        </p>
       </div>
-      <div className="w-full flex justify-center md:justify-around md:space-x-10 px-4 md:px-5 lg:px-0">
-        <div className="relative flex justify-center md:justify-start">
-          <Carousel
-            orientation="custom"
-            opts={{
-              align: 'start'
+      <Carousel
+        orientation="custom"
+        opts={{
+          align: 'start'
+        }}
+        className="w-full max-w-sm sm:max-w-max"
+      >
+        <CarouselContent className="cursor-grab">
+          <ListComponent
+            data={Services}
+            renderItem={(item: ServicesProps) => {
+              return (
+                <CarouselItem key={item.title} className="sm:basis-1/2 lg:basis-1/3">
+                  <Card className='h-64 md:h-[375px] rounded-3xl border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
+                    <CardContent className="flex flex-col justify-between h-full p-4 md:p-10">
+                      <div className="space-y-2">
+                        <Image
+                          src={OrangeMonitor}
+                          alt="Monitor Icon"
+                          className='w-10 h-10 md:w-auto rounded-full md:h-auto'
+                        />
+                        <p className="text-2xl md:text-3xl font-semibold">{item.title}</p>
+                        <p className="text-sm md:text-base">{item.body}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
+                        <ListComponent
+                          data={item.points ?? []}
+                          renderItem={(item, indexx) => (
+                            <div
+                              key={indexx}
+                              className='rounded-full border border-border bg-[#fafafa] text-black px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm'
+                            >
+                              <span>{item}</span>
+                            </div>
+                          )}
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              )
             }}
-            className="w-full max-w-[300px] sm:max-w-sm md:max-w-max md:w-full h-[420px] md:h-96"
-          >
-            <CarouselContent className="cursor-grab">
-              <ListComponent
-                data={Services}
-                renderItem={(item: ServicesProps) => {
-                  return (
-                    <CarouselItem key={item.title} className="md:basis-1/2 lg:basis-1/3">
-                      <Card className='h-[375px] rounded-[30px] md:rounded-[40px] border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
-                        <CardContent className="flex flex-col justify-between h-full p-4 sm:p-6">
-                          <div className="space-y-2">
-                            <Image
-                              src={OrangeMonitor}
-                              alt="Monitor Icon"
-                              className='w-10 h-10 md:w-auto rounded-full md:h-auto'
-                            />
-                            <p className="text-2xl md:text-3xl font-semibold">{item.title}</p>
-                            <p className="text-sm md:text-base">{item.body}</p>
-                          </div>
-                          <div className="flex flex-wrap gap-1.5 md:gap-2">
-                            <ListComponent
-                              data={item.points ?? []}
-                              renderItem={(item, indexx) => (
-                                <div
-                                  key={indexx}
-                                  className='rounded-full border border-border bg-[#fafafa] text-black px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm'
-                                >
-                                  <span>{item}</span>
-                                </div>
-                              )}
-                            />
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  )
-                }}
-              />
-            </CarouselContent>
-            <CarouselPrevious customClassName="-bottom-14 md:-bottom-16 right-16 md:right-48 w-12 h-12 md:w-14 md:h-14 border border-primary/50" />
-            <CarouselNext customClassName="-bottom-14 md:-bottom-16 right-0 md:right-[116px] w-12 h-12 md:w-14 md:h-14 border border-primary/50" />
-          </Carousel>
-        </div>
-      </div>
+          />
+        </CarouselContent>
+        <CarouselPrevious customClassName="-bottom-14 md:-bottom-16 right-16 md:right-20 w-12 h-12 md:w-14 md:h-14 border border-primary/50" />
+        <CarouselNext customClassName="-bottom-14 md:-bottom-16 right-0 w-12 h-12 md:w-14 md:h-14 border border-primary/50" />
+      </Carousel>
     </SectionWrapper >
   )
 }

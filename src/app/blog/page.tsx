@@ -1,16 +1,17 @@
 import * as React from "react";
+import type { Metadata } from 'next'
 import { getAllFilesFrontmatter } from "@/lib/mdx.server";
 import { sortByDate, getTags } from "@/lib/mdx.client";
 import BlogClient from "./blogClient";
 import { SectionWrapper } from "@/components/Layout";
 
-export const metadata = {
-  title: 'Blog',
-  description: 'Blog page',
+export const metadata: Metadata = {
+  title: 'Blog | Domsat - Crafted with Passion and Precision',
+  description: 'Blog | Domsat Company Profile',
   icons: {
     icon: '/assets/images/Favicon.svg'
   }
-};
+}
 
 export default async function page() {
   const files = await getAllFilesFrontmatter("blog");

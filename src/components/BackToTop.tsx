@@ -31,13 +31,13 @@ export default function BackToTop() {
     <Button
       onClick={scrollToTop}
       className={cn(
-        "fixed bottom-10 right-10 size-16 rounded-full cursor-pointer transition-opacity duration-200",
+        "fixed bottom-5 right-5 md:bottom-10 md:right-10 w-12 h-12 md:w-16 md:h-16 rounded-full cursor-pointer transition-opacity duration-200",
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
       aria-label="Back to top"
       asChild
     >
-      <ChevronUp size={40} />
+      <ChevronUp />
     </Button>
   );
 }
