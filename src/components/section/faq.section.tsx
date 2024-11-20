@@ -53,7 +53,7 @@ const FAQ = () => {
             data={accordionItems[active]}
             renderItem={(item: AccordionItemProps) => (
               <AccordionItem key={item.id} value={item.id} className='border border-border rounded-3xl data-[state=open]:bg-primary data-[state=open]:text-primary-foreground'>
-                <AccordionTrigger className='px-4 text-sm md:text-base'>
+                <AccordionTrigger className='px-4 sm:py-6 text-sm md:text-base'>
                   <div className="flex items-center">
                     <item.icon className="w-4 h-4 mr-3" />
                     {item.title}

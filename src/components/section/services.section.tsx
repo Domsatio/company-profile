@@ -33,7 +33,7 @@ const Service = () => {
             data={Services}
             renderItem={(item: ServicesProps) => {
               return (
-                <CarouselItem key={item.title} className="sm:basis-1/2 lg:basis-2/5">
+                <CarouselItem key={item.title} className="sm:basis-1/2 lg:basis-1/3">
                   <Card className='h-64 md:h-[375px] rounded-3xl border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
                     <CardContent className="flex flex-col justify-between h-full p-4 md:p-10">
                       <div className="space-y-2">
