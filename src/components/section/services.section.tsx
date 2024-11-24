@@ -4,7 +4,6 @@ import ListComponent from '@/components/ListComponent'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
 import Pencil from '../../../public/assets/icons/Pencil.svg'
-import OrangeMonitor from '../../../public/assets/icons/OrangeMonitor.svg'
 import Rocket from '../../../public/assets/icons/Rocket.svg'
 import { Services, ServicesProps } from '@/constants/Services'
 
@@ -33,21 +32,19 @@ const Service = () => {
             data={Services}
             renderItem={(item: ServicesProps) => {
               return (
-                <CarouselItem key={item.title} className="sm:basis-1/2 lg:basis-1/3">
-                  <Card className='h-64 md:h-[375px] rounded-3xl border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
-                    <CardContent className="flex flex-col justify-between h-full p-4 md:p-10">
+                <CarouselItem key={item.title} className="sm:basis-1/2 xl:basis-1/3 min-h-64 md:min-h-[375px]">
+                  <Card className='h-full rounded-3xl border border-border bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
+                    <CardContent className="flex flex-col justify-between gap-6 h-full p-4 md:p-10">
                       <div className="space-y-2">
-                        <Image
-                          src={OrangeMonitor}
-                          alt="Monitor Icon"
-                          className='w-10 h-10 md:w-auto rounded-full md:h-auto'
-                        />
-                        <p className="text-2xl md:text-3xl font-semibold">{item.title}</p>
+                        <div className='p-4 size-fit rounded-full bg-[#ff842c] text-white'>
+                          <item.icon size={24} />
+                        </div>
+                        <h4 className="text-2xl md:text-3xl font-semibold">{item.title}</h4>
                         <p className="text-sm md:text-base">{item.body}</p>
                       </div>
                       <div className="flex flex-wrap gap-1.5 md:gap-2">
                         <ListComponent
-                          data={item.points ?? []}
+                          data={item.points}
                           renderItem={(item, indexx) => (
                             <div
                               key={indexx}

@@ -7,6 +7,15 @@ import {
 import { ParsedUrlQuery } from "querystring";
 import SingleBlogClient from "./singleBlogClient";
 import { BlogType } from "@/types/frontmatter.type";
+import { SectionWrapper } from "@/components/Layout";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 interface Params extends ParsedUrlQuery {
   slug: string[];
@@ -23,11 +32,29 @@ const SingleBlogPage: FC<PostPageProps> = async ({ params }) => {
   const recommendations = await getRecommendations(slug.join("/"));
 
   return (
-    <SingleBlogClient
-      code={post.code}
-      frontmatter={post.frontmatter}
-      recommendations={recommendations}
-    />
+    <SectionWrapper className="flex flex-col px-4 md:gap-4 md:px-0 py-5 md:py-5">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage className="font-semibold">{post.frontmatter.title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
+      <SingleBlogClient
+        code={post.code}
+        frontmatter={post.frontmatter}
+        recommendations={recommendations}
+      />
+    </SectionWrapper>
   );
 };
 

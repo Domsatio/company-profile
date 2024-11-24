@@ -2,7 +2,7 @@ import Image from "next/image";
 import { SectionWrapper } from "@/components/Layout";
 import Thunder from "../../../public/assets/icons/Thunder.svg";
 import Smile from "../../../public/assets/icons/Smile.svg";
-import { ThumbsUp } from "lucide-react";
+import { WhyUs } from "@/constants/WhyUs";
 
 const Testimonials = () => {
   return (
@@ -30,19 +30,18 @@ const Testimonials = () => {
           />
         </p>
       </div>
-      <div className="w-full h-96 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp size={40} />
-        </div>
-        <div className="border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp size={40} />
-        </div>
-        <div className="sm:row-span-2 border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp size={40} />
-        </div>
-        <div className="sm:col-span-2 border border-primary/50 hover:bg-primary hover:text-background transition-colors rounded-3xl flex justify-center items-center">
-          <ThumbsUp size={40} />
-        </div>
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {WhyUs.map((item) =>
+          <div key={item.title} className="p-4 md:p-10 border border-border hover:bg-primary hover:text-background transition-colors rounded-3xl flex flex-col gap-6">
+            <div className="flex gap-3 items-center">
+              <div className="p-3 rounded-xl bg-[#ff842c] text-white">
+                <item.icon size={20} />
+              </div>
+              <h4 className="text-xl font-semibold">{item.title}</h4>
+            </div>
+            <p>{item.description}</p>
+          </div>
+        )}
       </div>
     </SectionWrapper>
   )
