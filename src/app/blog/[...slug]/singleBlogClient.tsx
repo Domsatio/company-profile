@@ -47,13 +47,13 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
   }, [frontmatter.slug])
 
   return (
-    <div className='px-5 md:px-0 py-10'>
+    <div>
       {/* Banner & Description */}
       <div>
         <NextImage
           src={frontmatter.banner}
           alt={`Photo from unsplash: ${frontmatter.banner}`}
-          className="w-full h-[500px]"
+          className="w-full h-[450px]"
           imgClassName="w-full h-full object-cover rounded-lg"
           width={1200}
           height={300}

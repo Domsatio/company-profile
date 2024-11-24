@@ -4,11 +4,11 @@ import { SectionWrapper } from '@/components/Layout'
 import ListComponent from '@/components/ListComponent'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
-import { Testimonials, TestimonialProps } from '@/constants/Testimonial'
+import { Testimonials as TestimonialsData, TestimonialProps } from '@/constants/Testimonials'
 import OrangeChecklist from '../../../public/assets/icons/OrangeChecklist.svg'
 import Autoplay from 'embla-carousel-autoplay'
 
-const Testimonial = () => {
+const Testimonials = () => {
   return (
     <SectionWrapper className="flex flex-col items-center justify-center">
       <div className="self-start md:self-center md:text-center space-y-3 md:space-y-4">
@@ -18,7 +18,7 @@ const Testimonial = () => {
           <Image src={OrangeChecklist} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
         </h1>
         <p className="text-sm sm:text-base md:text-lg">
-          Here are some testimonials from our user after using Spend.In to manage their business expenses.
+          Discover what our valued users have to say about their experiences.
         </p>
       </div>
       <Carousel
@@ -32,13 +32,13 @@ const Testimonial = () => {
       >
         <CarouselContent className="cursor-grab">
           <ListComponent
-            data={Testimonials}
+            data={TestimonialsData}
             renderItem={(item: TestimonialProps, index: number) => {
               return (
                 <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
-                  <Card className="h-56 md:h-80 rounded-3xl border border-primary/50 bg-background hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Card className="h-56 md:h-80 rounded-3xl border border-border bg-background hover:bg-primary hover:text-primary-foreground transition-colors">
                     <CardContent className="flex flex-col justify-between h-full p-4 md:p-10">
-                      <p className="text-sm md:text-base">{item.statement}</p>
+                      <p className="text-sm md:text-base">{`"${item.statement}"`}</p>
                       <div className="flex items-center gap-3">
                         <div className="w-14 h-14">
                           <Image
@@ -67,4 +67,4 @@ const Testimonial = () => {
   )
 }
 
-export default Testimonial
+export default Testimonials

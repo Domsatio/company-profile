@@ -4,7 +4,7 @@ import WhyUs from "@/components/section/whyus.section";
 import Hero from "@/components/section/hero.section";
 import FAQ from "@/components/section/faq.section";
 import CTA from "@/components/section/cta.section";
-import Testimonial from "@/components/section/testimonial.section";
+import Testimonials from "@/components/section/testimonials.section";
 
 export const metadata: Metadata = {
   title: 'Domsat - Crafted with Passion and Precision',
@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <Service />
       <WhyUs />
-      <Testimonial />
+      <Testimonials />
       <FAQ />
       <CTA />
     </>

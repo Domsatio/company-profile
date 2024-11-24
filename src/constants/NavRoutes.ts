@@ -1,16 +1,29 @@
+import { Services } from '@/constants/Services'
+
+export type NavChildrenProps = {
+  title: string
+  href: string
+  description: string
+}
+
 export type NavRoutesProps = {
   label: string
-  href: string
+  href?: string
+  children?: NavChildrenProps[]
 }
 
 export const NavRoutes: NavRoutesProps[] = [
   {
-    label: 'Blog',
-    href: '/blog'
+    label: 'Services',
+    children: Services.map((service) => ({
+      title: service.title,
+      href: `/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`,
+      description: service.body
+    }))
   },
   {
-    label: 'Services',
-    href: '/services'
+    label: 'Blog',
+    href: '/blog'
   },
   {
     label: 'About Us',
