@@ -4,7 +4,7 @@ import WhyUs from "@/components/section/whyus.section";
 import Hero from "@/components/section/hero.section";
 import FAQ from "@/components/section/faq.section";
 import CTA from "@/components/section/cta.section";
-import Testimonial from "@/components/section/testimonial.section";
+import Testimonial from "@/components/section/testimonials.section";
 import RecentBlog from '@/components/section/blog.section';
 import { getLatest } from '@/lib/mdx.server';
 

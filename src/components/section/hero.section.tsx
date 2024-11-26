@@ -5,14 +5,14 @@ import { ArrowUpRight } from 'lucide-react'
 
 const Hero = () => {
   return (
-    <SectionWrapper className="min-h-dvh flex items-center justify-center ">
-      <div className="relative -mt-10 md:text-center space-y-8">
+    <SectionWrapper className="min-h-[90dvh] flex items-center justify-center">
+      <div className="md:text-center space-y-8">
         <div className="inline-flex items-center rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm">
           <Flame size={16} />
           <span className="ml-1.5 sm:ml-2">Introducing Our Company</span>
         </div>
         <div className="space-y-3 sm:space-y-4">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold">
             We Help You Achieve{' '}
             <strong className="dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
               Your <i>Goals</i>

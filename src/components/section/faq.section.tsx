@@ -14,7 +14,7 @@ const FAQ = () => {
   const [active, setActive] = useState<string>(listFAQ[0])
 
   const ListFAQToggle = () => (
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="flex flex-wrap sm:justify-center gap-2">
       {listFAQ.map((item) => (
         <Button
           key={item}

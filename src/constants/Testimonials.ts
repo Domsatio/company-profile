@@ -38,7 +38,7 @@ export const Testimonials: TestimonialProps[] = [
     name: 'Raihan Ghassani',
     job: 'Data Analyst Teleperformance',
     statement:
-      "\"The best\"! That's what I want to say to this platform, didn't know that there's a platform to help you manage your business expenses like this! Very recommended to you who have a big business!",
+      "'The best'! That's what I want to say to this platform, didn't know that there's a platform to help you manage your business expenses like this! Very recommended to you who have a big business!",
     image: RaihanGhassani
   },
   {
