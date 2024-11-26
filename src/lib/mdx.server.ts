@@ -128,17 +128,10 @@ export async function getRecommendations(currSlug: string) {
 export async function getLatest(currSlug: string) {
   const frontmatters = await getAllFilesFrontmatter('blog')
 
-  // Get current frontmatter
-  const currentFm = frontmatters.find((fm) => fm.slug === currSlug)
-
   // Remove currentFm and Bahasa Posts, then randomize order
   const otherFms = frontmatters
     .filter((fm) => !fm.slug.startsWith('id-') && fm.slug !== currSlug)
 
-  // Find with similar tags
-  // const _recommendations = otherFms.filter((op) =>
-  //   op.tags.split(',').some((p) => currentFm?.tags.split(',').includes(p))
-  // )
   const recommendations = sortByDate(otherFms)
 
   // Populate with random recommendations if not enough
