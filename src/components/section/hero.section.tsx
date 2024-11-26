@@ -1,5 +1,7 @@
 import { Flame } from 'lucide-react'
 import { SectionWrapper } from '../Layout'
+import { Button } from '../ui/button'
+import { ArrowUpRight } from 'lucide-react'
 
 const Hero = () => {
   return (
@@ -27,10 +29,10 @@ const Hero = () => {
           We are a technology company dedicated to helping businesses achieve their goals through innovative digital
           solutions and strategic growth partnerships.
         </p>
-      </div>
-      {/* <Button variant="outline" className="h-12 sm:h-14 w-40 sm:w-48 rounded-full font-semibold text-base sm:text-lg">
+        <Button variant="outline" className="h-12 sm:h-14 w-40 sm:w-48 rounded-full font-semibold text-base sm:text-lg">
           Get Started <ArrowUpRight className="size-4 sm:size-5" />
-        </Button> */}
+        </Button>
+      </div>
     </SectionWrapper>
   )
 }
