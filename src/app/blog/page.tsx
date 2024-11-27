@@ -24,8 +24,6 @@ export const metadata: Metadata = {
 export default async function page() {
   const files = await getAllFilesFrontmatter("blog");
   const posts = sortByDate(files);
-
-  // Accumulate tags and remove duplicate
   const tags = getTags(posts);
 
   return (
@@ -33,7 +31,7 @@ export default async function page() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink href="/">Beranda</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -45,7 +43,7 @@ export default async function page() {
       <div className="space-y-1">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Blog</h1>
         <p className="text-sm md:text-base">
-          Explore our collection of insightful articles, tutorials, and industry updates.
+          Jelajahi koleksi artikel, tutorial, dan pembaruan industri kami yang informatif.
         </p>
       </div>
 

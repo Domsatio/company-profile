@@ -6,26 +6,26 @@ export type FooterLinkProps = {
 }
 
 export type ListFooterLinkProps = {
-  Home: FooterLinkProps[]
-  Help: FooterLinkProps[]
-  Company: FooterLinkProps[]
+  Tautan: FooterLinkProps[]
+  Bantuan: FooterLinkProps[]
+  Perusahaan: FooterLinkProps[]
 }
 
 export const ListFooterLink: ListFooterLinkProps = {
-  Home: [
+  Tautan: [
+    { label: 'Beranda', href: '/' },
+    { label: 'Layanan', href: '/services' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Services', href: '/services' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Contact Us', href: '/contact' }
+    { label: 'Tentang Kami', href: '/about' },
+    { label: 'Hubungi Kami', href: '/contact' }
   ],
-  Help: [
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Accessibility', href: '/accessibility' },
-    { label: 'Privacy Policy', href: '/privacy-policy' }
+  Bantuan: [
+    { label: 'Syarat & Ketentuan', href: '/terms-and-conditions' },
+    { label: 'Kebijakan Privasi', href: '/privacy-policy' }
   ],
-  Company: [
-    { label: 'Career', href: '/career' },
-    { label: 'Pricing', href: '/pricing' }
+  Perusahaan: [
+    { label: 'Karir', href: '/career' }
+    // { label: 'Pricing', href: '/pricing' }
   ]
 }
 

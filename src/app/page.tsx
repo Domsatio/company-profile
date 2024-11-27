@@ -4,7 +4,7 @@ import WhyUs from "@/components/section/whyus.section";
 import Hero from "@/components/section/hero.section";
 import FAQ from "@/components/section/faq.section";
 import CTA from "@/components/section/cta.section";
-import Testimonial from "@/components/section/testimonials.section";
+import Testimonials from "@/components/section/testimonials.section";
 import RecentBlog from '@/components/section/blog.section';
 import { getLatest } from '@/lib/mdx.server';
 
@@ -18,12 +18,13 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const data = await getLatest('blog')
+
   return (
     <>
       <Hero />
       <Service />
       <WhyUs />
-      <Testimonial />
+      <Testimonials />
       <RecentBlog data={data} />
       <FAQ />
       <CTA />

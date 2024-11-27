@@ -62,7 +62,7 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
         <h1 className="mt-4">{frontmatter.title}</h1>
 
         <p className="mt-2 text-sm text-foreground/80 dark:text-zinc-400">
-          Written on {format(new Date(frontmatter.publishedAt), 'MMMM dd, yyyy')} by {frontmatter.author}.
+          Ditulis pada tanggal {format(new Date(frontmatter.publishedAt), 'MMMM dd, yyyy')} oleh {frontmatter.author}.
         </p>
         {/* {frontmatter.lastUpdated && (
             <div className="mt-2 flex flex-wrap gap-2 text-sm text-gray-700 dark:text-gray-200">

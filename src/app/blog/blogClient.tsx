@@ -17,12 +17,12 @@ import { Button } from '@/components/ui/button'
 const sortOptions: Array<SortOption> = [
   {
     id: 'date',
-    name: 'Sort by date',
+    name: 'Urutkan berdasarkan tanggal',
     icon: HiCalendar
   },
   {
     id: 'views',
-    name: 'Sort by views',
+    name: 'Urutkan berdasarkan popularitas',
     icon: HiEye
   }
 ]
@@ -103,7 +103,7 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
     <div className='space-y-4'>
       <StyledInput
         data-fade="2"
-        placeholder="Search..."
+        placeholder="Cari..."
         onChange={handleSearch}
         value={search}
         type="text"
@@ -112,7 +112,7 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
         className="flex flex-wrap items-baseline justify-start gap-2 text-sm text-foreground/80 dark:text-zinc-400"
         data-fade="3"
       >
-        <span className="font-medium">Choose topic:</span>
+        <span className="font-medium">Pilih topik:</span>
         <SkipNavTag>
           {tags.map((tag) => (
             <Tag key={tag} onClick={() => toggleTag(tag)} disabled={!filteredTags.includes(tag)}>
@@ -126,8 +126,6 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
         data-fade="4"
       >
         <Button
-          // variant=""
-          className="text-sm !font-medium"
           onClick={() => {
             setIsEnglish((b) => !b)
             clearSearch()
@@ -145,7 +143,7 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
           />
         ) : (
           <h2 className="my-8 text-center sm:col-span-2 xl:col-span-4">
-            <Accent>Sorry, not found :(</Accent>
+            <Accent>Postingan tidak ditemukan</Accent>
           </h2>
         )}
       </ul>

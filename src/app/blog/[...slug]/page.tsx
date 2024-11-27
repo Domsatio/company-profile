@@ -16,6 +16,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Metadata } from "next";
 
 interface Params extends ParsedUrlQuery {
   slug: string[];
@@ -23,6 +24,14 @@ interface Params extends ParsedUrlQuery {
 
 interface PostPageProps {
   params: Params;
+}
+
+export const metadata: Metadata = {
+  title: 'Blog | Domsat - Crafted with Passion and Precision',
+  description: 'Blog | Domsat Company Profile',
+  icons: {
+    icon: '/assets/images/Favicon.svg'
+  }
 }
 
 const SingleBlogPage: FC<PostPageProps> = async ({ params }) => {
@@ -36,7 +45,7 @@ const SingleBlogPage: FC<PostPageProps> = async ({ params }) => {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            <BreadcrumbLink href="/">Beranda</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

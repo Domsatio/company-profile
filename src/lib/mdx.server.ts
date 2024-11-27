@@ -128,20 +128,13 @@ export async function getRecommendations(currSlug: string) {
 export async function getLatest(currSlug: string) {
   const frontmatters = await getAllFilesFrontmatter('blog')
 
-  // Remove currentFm and Bahasa Posts, then randomize order
-  const otherFms = frontmatters
-    .filter((fm) => !fm.slug.startsWith('id-') && fm.slug !== currSlug)
+  // Remove currentFm and Bahasa Posts
+  const otherFms = frontmatters.filter((fm) => !fm.slug.startsWith('id-') && fm.slug !== currSlug)
 
-  const recommendations = sortByDate(otherFms)
-
-  // Populate with random recommendations if not enough
-  const threeRecommendations =
-    recommendations.length >= 3
-      ? recommendations
-      : [...recommendations, ...otherFms.filter((fm) => !recommendations.some((r) => r.slug === fm.slug))]
+  const latest = sortByDate(otherFms)
 
   // Only return first three
-  return threeRecommendations.slice(0, 3)
+  return latest.slice(0, 3)
 }
 
 /**

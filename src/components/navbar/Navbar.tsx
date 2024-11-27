@@ -11,7 +11,6 @@ import DomsatLogo from '../../../public/assets/images/Domsat.svg'
 import ListComponent from '../ListComponent'
 import { cn } from '@/lib/utils'
 import ToggleDarkMode from './ThemeSwitch'
-import ContactForm from '../ContactForm'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -112,7 +111,7 @@ const SheetList = () => (
             <ListComponent
               data={route.children}
               renderItem={(child) => (
-                <AccordionContent key={child.title} className='ps-5 py-3'>
+                <AccordionContent key={child.title} className='ps-5 pt-5 pb-0'>
                   <Link
                     href={child.href}
                   >
@@ -135,7 +134,7 @@ const SheetList = () => (
   />
 )
 
-const NavSheet = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => (
+const NavSheet = () => (
   <Sheet defaultOpen={false}>
     <SheetTrigger className="md:hidden" asChild>
       <Button variant="ghost" size="icon">
@@ -148,14 +147,17 @@ const NavSheet = ({ open, setOpen }: { open: boolean, setOpen: React.Dispatch<Re
       </SheetHeader>
       <div className="flex flex-col gap-5 mt-5">
         <SheetList />
-        <ContactForm open={open} setOpen={setOpen} />
+        <Link href='/contact'>
+          <Button size="lg" className="block rounded-full md:text-base">
+            Hubungi Kami
+          </Button>
+        </Link>
       </div>
     </SheetContent>
   </Sheet>
 )
 
 export default function Navbar() {
-  const [open, setOpen] = React.useState<boolean>(false)
   const pathname = usePathname()
 
   return (
@@ -170,11 +172,13 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex items-center gap-2">
-        <NavSheet open={open} setOpen={setOpen} />
+        <NavSheet />
         <ToggleDarkMode />
-        <div className="hidden md:block">
-          <ContactForm open={open} setOpen={setOpen} />
-        </div>
+        <Link href='/contact' className="hidden md:block">
+          <Button size="lg" className="block rounded-full md:text-base">
+            Hubungi Kami
+          </Button>
+        </Link>
       </div>
     </header>
   )

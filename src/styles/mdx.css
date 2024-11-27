@@ -1,46 +1,49 @@
 .prose {
-  max-width: 50rem;
+  @apply max-w-[50rem];
 }
 
 .prose p {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  @apply my-5;
 }
 
 .prose a {
-  text-decoration: none;
+  @apply no-underline;
+}
+
+.prose ol {
+  @apply list-decimal pl-4 space-y-2;
+}
+
+.prose ul {
+  @apply list-disc pl-4 space-y-2;
 }
 
 .prose > ol > li > :last-child,
 .prose > ul > li > :last-child {
-  margin-bottom: 0;
+  @apply mb-0;
 }
 .prose > ol > li > :first-child,
 .prose > ul > li > :first-child {
-  margin-top: 0;
+  @apply mt-0;
 }
 
 .prose blockquote p {
-  font-style: italic;
-  font-weight: 600;
-  font-size: large;
+  @apply italic font-semibold;
 }
 
-/* .prose blockquote p:first-of-type::before,
-  .prose blockquote p:last-of-type::after {
-    content: '';
-  } */
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  @apply content-none;
+}
 
-/* .prose blockquote {
-    border-style: solid;
-    border-width: 0 0 0 0.25rem;
-    border-image: linear-gradient(to top, #00ff94, #00e0f3, #00c4fd) 1;
-  } */
+.prose blockquote {
+  border-image: linear-gradient(to top, #00ff94, #00e0f3, #00c4fd) 1;
+  @apply border-l-4 pl-4;
+}
 
 .prose hr {
-  border-style: solid;
-  border-width: 0 0 1px 0;
   border-image: linear-gradient(to right, #1b72ff, #007afd, #1bffff) 1;
+  @apply border-b;
 }
 
 .mdx.prose :where(h1, h2, h3, h4) {

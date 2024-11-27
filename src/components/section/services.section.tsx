@@ -12,11 +12,11 @@ const Service = () => {
     <SectionWrapper className="flex flex-col items-center justify-center">
       <div className="self-start md:self-center md:text-center space-y-3 md:space-y-4">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex md:justify-center items-center">
-          Explore <Image src={Rocket} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
-          Our Services
+          Jelajahi <Image src={Rocket} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
+          Layanan Kami
         </h1>
         <p className="text-sm sm:text-base md:text-lg flex justify-center items-center">
-          We provide a wide range of services to meet your needs.
+          Kami menyediakan berbagai layanan untuk memenuhi kebutuhan Anda.
           <Image src={Pencil} width={40} height={40} alt="Pencil Icon" className="mx-2 hidden md:block" />
         </p>
       </div>

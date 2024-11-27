@@ -43,7 +43,7 @@ const FAQ = () => {
           Questions
         </h1>
         <p className="text-sm sm:text-base md:text-lg">
-          We are here to answer your questions and help you with any concerns you may have.
+          Kami siap menjawab pertanyaan Anda dan membantu Anda dengan segala kekhawatiran yang Anda miliki.
         </p>
       </div>
       <ListFAQToggle />

@@ -173,14 +173,6 @@ html {
   }
 }
 
-.tippy-tooltip [x-circle] {
-  background-color: transparent !important;
-}
-
-.tippy-tooltip {
-  padding: 0 0.8rem;
-}
-
 .yt-lite::before {
   content: none !important;
 }

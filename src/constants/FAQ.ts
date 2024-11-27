@@ -30,173 +30,173 @@ export type AccordionItemProps = {
 }
 
 export type AccordionProps = {
-  General: AccordionItemProps[]
-  Development: AccordionItemProps[]
-  Design: AccordionItemProps[]
-  Support: AccordionItemProps[]
+  Umum: AccordionItemProps[]
+  Pengembangan: AccordionItemProps[]
+  Desain: AccordionItemProps[]
+  Bantuan: AccordionItemProps[]
 }
 
 export const accordionItems: Record<string, AccordionItemProps[]> = {
-  General: [
+  Umum: [
     {
       id: '1',
       icon: Info,
-      title: 'What services do you offer?',
+      title: 'Layanan apa yang Anda tawarkan?',
       content:
-        'We offer a comprehensive range of digital services including web development, mobile app development, UI/UX design, and IT consulting. Our team specializes in creating custom software solutions tailored to your business needs.'
+        'Kami menawarkan berbagai layanan digital termasuk pengembangan web, pengembangan aplikasi mobile, desain UI/UX, dan konsultasi IT. Tim kami mengkhususkan diri dalam menciptakan solusi perangkat lunak khusus yang disesuaikan dengan kebutuhan bisnis Anda.'
     },
     {
       id: '2',
       icon: Clock,
-      title: 'How long does it typically take to complete a project?',
+      title: 'Berapa lama biasanya untuk menyelesaikan sebuah proyek?',
       content:
-        "Project timelines vary depending on scope and complexity. A simple website might take 4-8 weeks, while a complex enterprise application could take 6 months or more. We'll provide detailed timeline estimates during our initial consultation based on your specific requirements."
+        'Waktu penyelesaian proyek bervariasi tergantung pada ruang lingkup dan kompleksitasnya. Sebuah situs web sederhana mungkin memakan waktu 4-8 minggu, sementara aplikasi perusahaan yang kompleks bisa memakan waktu 6 bulan atau lebih. Kami akan memberikan estimasi waktu yang rinci selama konsultasi awal berdasarkan kebutuhan spesifik Anda.'
     },
     {
       id: '3',
       icon: Settings,
-      title: 'What is your development process?',
+      title: 'Apa proses pengembangan Anda?',
       content:
-        'We follow an agile development methodology with iterative cycles. This includes requirements gathering, planning, design, development, testing, and deployment phases. We maintain regular communication and provide progress updates throughout the project lifecycle.'
+        'Kami mengikuti metodologi pengembangan agile dengan siklus iteratif. Ini termasuk pengumpulan kebutuhan, perencanaan, desain, pengembangan, pengujian, dan fase penyebaran. Kami menjaga komunikasi yang teratur dan memberikan pembaruan kemajuan sepanjang siklus proyek.'
     },
     {
       id: '4',
       icon: CreditCard,
-      title: 'How do you handle project pricing?',
+      title: 'Bagaimana Anda menangani harga proyek?',
       content:
-        'Our pricing is project-based and depends on factors like complexity, features, timeline, and resources required. We provide detailed quotes after thoroughly understanding your requirements. We also offer flexible engagement models including fixed price, time and materials, and retainer arrangements.'
+        'Harga kami berbasis proyek dan tergantung pada faktor-faktor seperti kompleksitas, fitur, waktu, dan sumber daya yang dibutuhkan. Kami memberikan kutipan rinci setelah memahami kebutuhan Anda secara menyeluruh. Kami juga menawarkan model keterlibatan yang fleksibel termasuk harga tetap, waktu dan bahan, serta pengaturan retainer.'
     },
     {
       id: '5',
       icon: WrenchIcon,
-      title: 'Do you provide maintenance and support after project completion?',
+      title: 'Apakah Anda menyediakan pemeliharaan dan dukungan setelah proyek selesai?',
       content:
-        'Yes, we offer ongoing maintenance and support services to ensure your digital solutions remain up-to-date and perform optimally. We provide different support packages that include regular updates, security patches, performance monitoring, and technical support.'
+        'Ya, kami menawarkan layanan pemeliharaan dan dukungan berkelanjutan untuk memastikan solusi digital Anda tetap up-to-date dan berkinerja optimal. Kami menyediakan berbagai paket dukungan yang mencakup pembaruan reguler, patch keamanan, pemantauan kinerja, dan dukungan teknis.'
     },
     {
       id: '6',
       icon: ShieldCheck,
-      title: 'How do you ensure the quality and security of your deliverables?',
+      title: 'Bagaimana Anda memastikan kualitas dan keamanan hasil kerja Anda?',
       content:
-        'We implement rigorous quality assurance processes including automated testing, code reviews, and security audits. Our development practices follow industry standards and best practices for secure coding. We also perform thorough testing before any deployment.'
+        'Kami menerapkan proses jaminan kualitas yang ketat termasuk pengujian otomatis, tinjauan kode, dan audit keamanan. Praktik pengembangan kami mengikuti standar industri dan praktik terbaik untuk pengkodean yang aman. Kami juga melakukan pengujian menyeluruh sebelum penyebaran.'
     },
     {
       id: '7',
       icon: Cable,
-      title: 'Can you work with our existing systems and technologies?',
+      title: 'Bisakah Anda bekerja dengan sistem dan teknologi yang sudah ada?',
       content:
-        'Yes, we have experience integrating with various technologies and legacy systems. Our team is skilled in multiple programming languages and frameworks, allowing us to work with your existing infrastructure while implementing modern solutions.'
+        'Ya, kami memiliki pengalaman dalam mengintegrasikan berbagai teknologi dan sistem lama. Tim kami terampil dalam berbagai bahasa pemrograman dan kerangka kerja, memungkinkan kami untuk bekerja dengan infrastruktur Anda yang ada sambil menerapkan solusi modern.'
     }
   ],
-  Development: [
+  Pengembangan: [
     {
       id: '1',
       icon: Laptop,
-      title: 'What technologies do you work with?',
+      title: 'Teknologi apa yang Anda gunakan?',
       content:
-        'We work with a wide range of technologies including JavaScript, TypeScript, React, Node.js, and more. Our team stays updated with the latest trends and tools to deliver cutting-edge solutions.'
+        'Kami bekerja dengan berbagai teknologi termasuk JavaScript, TypeScript, React, Node.js, dan lainnya. Tim kami selalu mengikuti tren dan alat terbaru untuk memberikan solusi mutakhir.'
     },
     {
       id: '2',
       icon: Smartphone,
-      title: 'Do you provide mobile app development services?',
+      title: 'Apakah Anda menyediakan layanan pengembangan aplikasi mobile?',
       content:
-        'Yes, we specialize in mobile app development for iOS and Android platforms. Our team has experience building native, hybrid, and cross-platform apps using technologies like React Native and Flutter.'
+        'Ya, kami mengkhususkan diri dalam pengembangan aplikasi mobile untuk platform iOS dan Android. Tim kami memiliki pengalaman membangun aplikasi native, hybrid, dan cross-platform menggunakan teknologi seperti React Native dan Flutter.'
     },
     {
       id: '3',
       icon: BoxIcon,
-      title: 'Can you help with custom software development?',
+      title: 'Bisakah Anda membantu dengan pengembangan perangkat lunak khusus?',
       content:
-        'Absolutely! We excel in custom software development tailored to your unique business requirements. Our team can build bespoke solutions from scratch or enhance existing systems to improve efficiency and productivity.'
+        'Tentu saja! Kami unggul dalam pengembangan perangkat lunak khusus yang disesuaikan dengan kebutuhan bisnis unik Anda. Tim kami dapat membangun solusi khusus dari awal atau meningkatkan sistem yang ada untuk meningkatkan efisiensi dan produktivitas.'
     },
     {
       id: '4',
       icon: Cloud,
-      title: 'What is your experience with cloud technologies?',
+      title: 'Apa pengalaman Anda dengan teknologi cloud?',
       content:
-        'We have extensive experience working with cloud platforms like AWS, Azure, and Google Cloud. Our team can help you migrate to the cloud, build cloud-native applications, and leverage cloud services for scalability and cost-efficiency.'
+        'Kami memiliki pengalaman luas bekerja dengan platform cloud seperti AWS, Azure, dan Google Cloud. Tim kami dapat membantu Anda bermigrasi ke cloud, membangun aplikasi cloud-native, dan memanfaatkan layanan cloud untuk skalabilitas dan efisiensi biaya.'
     },
     {
       id: '5',
       icon: Webhook,
-      title: 'Do you provide API development services?',
+      title: 'Apakah Anda menyediakan layanan pengembangan API?',
       content:
-        'Yes, we offer API development services to help you build robust and scalable APIs for your applications. Our team follows best practices for API design, documentation, and testing to ensure seamless integration with other systems.'
+        'Ya, kami menawarkan layanan pengembangan API untuk membantu Anda membangun API yang kuat dan skalabel untuk aplikasi Anda. Tim kami mengikuti praktik terbaik untuk desain API, dokumentasi, dan pengujian untuk memastikan integrasi yang mulus dengan sistem lain.'
     }
   ],
-  Design: [
+  Desain: [
     {
       id: '1',
       icon: PaintBucket,
-      title: 'What design services do you offer?',
+      title: 'Layanan desain apa yang Anda tawarkan?',
       content:
-        'We offer a wide range of design services including UI/UX design, branding, graphic design, and illustration. Our design team specializes in creating visually appealing and user-friendly interfaces that enhance the overall user experience.'
+        'Kami menawarkan berbagai layanan desain termasuk desain UI/UX, branding, desain grafis, dan ilustrasi. Tim desain kami mengkhususkan diri dalam menciptakan antarmuka yang menarik secara visual dan ramah pengguna yang meningkatkan pengalaman pengguna secara keseluruhan.'
     },
     {
       id: '2',
       icon: Smartphone,
-      title: 'Do you provide responsive web design?',
+      title: 'Apakah Anda menyediakan desain web responsif?',
       content:
-        'Yes, we design websites and applications that are responsive and optimized for all devices and screen sizes. Our design process includes wireframing, prototyping, and user testing to ensure a seamless user experience across platforms.'
+        'Ya, kami mendesain situs web dan aplikasi yang responsif dan dioptimalkan untuk semua perangkat dan ukuran layar. Proses desain kami mencakup wireframing, prototyping, dan pengujian pengguna untuk memastikan pengalaman pengguna yang mulus di seluruh platform.'
     },
     {
       id: '3',
       icon: PenTool,
-      title: 'Can you help with logo and branding design?',
+      title: 'Bisakah Anda membantu dengan desain logo dan branding?',
       content:
-        'Absolutely! We offer logo design, branding, and identity services to help you establish a strong brand presence. Our design team can create custom logos, brand guidelines, and marketing collateral that reflect your brand values and resonate with your target audience.'
+        'Tentu saja! Kami menawarkan layanan desain logo, branding, dan identitas untuk membantu Anda membangun kehadiran merek yang kuat. Tim desain kami dapat membuat logo khusus, panduan merek, dan materi pemasaran yang mencerminkan nilai-nilai merek Anda dan beresonansi dengan audiens target Anda.'
     },
     {
       id: '4',
       icon: MousePointer2,
-      title: 'What is your approach to user experience design?',
+      title: 'Apa pendekatan Anda terhadap desain pengalaman pengguna?',
       content:
-        'We follow a user-centered design approach focused on understanding user needs, behaviors, and motivations. Our design process includes user research, wireframing, prototyping, and usability testing to create intuitive and engaging user experiences.'
+        'Kami mengikuti pendekatan desain yang berpusat pada pengguna yang berfokus pada pemahaman kebutuhan, perilaku, dan motivasi pengguna. Proses desain kami mencakup penelitian pengguna, wireframing, prototyping, dan pengujian kegunaan untuk menciptakan pengalaman pengguna yang intuitif dan menarik.'
     },
     {
       id: '5',
       icon: HelpCircle,
-      title: 'Do you provide design consulting services?',
+      title: 'Apakah Anda menyediakan layanan konsultasi desain?',
       content:
-        'Yes, we offer design consulting services to help you optimize your digital products and services. Our design experts can review your existing designs, provide recommendations for improvement, and help you align your design strategy with your business goals.'
+        'Ya, kami menawarkan layanan konsultasi desain untuk membantu Anda mengoptimalkan produk dan layanan digital Anda. Pakar desain kami dapat meninjau desain Anda yang ada, memberikan rekomendasi untuk perbaikan, dan membantu Anda menyelaraskan strategi desain Anda dengan tujuan bisnis Anda.'
     }
   ],
-  Support: [
+  Bantuan: [
     {
       id: '1',
       icon: HeadphonesIcon,
-      title: 'What support services do you offer?',
+      title: 'Layanan dukungan apa yang Anda tawarkan?',
       content:
-        'We offer a range of support services including maintenance, monitoring, troubleshooting, and technical support. Our support team is available to assist you with any issues, updates, or enhancements to ensure your digital solutions run smoothly.'
+        'Kami menawarkan berbagai layanan dukungan termasuk pemeliharaan, pemantauan, pemecahan masalah, dan dukungan teknis. Tim dukungan kami tersedia untuk membantu Anda dengan masalah, pembaruan, atau peningkatan apa pun untuk memastikan solusi digital Anda berjalan lancar.'
     },
     {
       id: '2',
       icon: Server,
-      title: 'Do you provide hosting and server management?',
+      title: 'Apakah Anda menyediakan layanan hosting dan manajemen server?',
       content:
-        'Yes, we offer hosting and server management services to help you deploy and maintain your applications. Our team can set up hosting environments, configure servers, and monitor performance to ensure optimal uptime and security.'
+        'Ya, kami menawarkan layanan hosting dan manajemen server untuk membantu Anda menyebarkan dan memelihara aplikasi Anda. Tim kami dapat mengatur lingkungan hosting, mengkonfigurasi server, dan memantau kinerja untuk memastikan uptime dan keamanan yang optimal.'
     },
     {
       id: '3',
       icon: Download,
-      title: 'Can you help with software updates and patches?',
+      title: 'Bisakah Anda membantu dengan pembaruan perangkat lunak dan patch?',
       content:
-        'Absolutely! We provide software update and patch management services to keep your applications up-to-date and secure. Our team can schedule regular updates, test new releases, and apply patches to address vulnerabilities and bugs.'
+        'Tentu saja! Kami menyediakan layanan manajemen pembaruan perangkat lunak dan patch untuk menjaga aplikasi Anda tetap up-to-date dan aman. Tim kami dapat menjadwalkan pembaruan reguler, menguji rilis baru, dan menerapkan patch untuk mengatasi kerentanan dan bug.'
     },
     {
       id: '4',
       icon: Clock4,
-      title: 'What is your response time for support requests?',
+      title: 'Berapa waktu respons Anda untuk permintaan dukungan?',
       content:
-        'Our support team aims to respond to support requests within 24 hours. We prioritize urgent issues and provide timely updates on the status of your request. Our goal is to resolve issues quickly and efficiently to minimize downtime and disruptions.'
+        'Tim dukungan kami bertujuan untuk merespons permintaan dukungan dalam waktu 24 jam. Kami memprioritaskan masalah mendesak dan memberikan pembaruan tepat waktu tentang status permintaan Anda. Tujuan kami adalah menyelesaikan masalah dengan cepat dan efisien untuk meminimalkan downtime dan gangguan.'
     },
     {
       id: '5',
       icon: GraduationCap,
-      title: 'Do you offer training and documentation for your solutions?',
+      title: 'Apakah Anda menawarkan pelatihan dan dokumentasi untuk solusi Anda?',
       content:
-        'Yes, we provide training and documentation services to help you onboard your team and users. Our training programs cover system usage, best practices, and troubleshooting techniques. We also create user manuals, guides, and FAQs to support your users.'
+        'Ya, kami menyediakan layanan pelatihan dan dokumentasi untuk membantu Anda mengonboarding tim dan pengguna Anda. Program pelatihan kami mencakup penggunaan sistem, praktik terbaik, dan teknik pemecahan masalah. Kami juga membuat manual pengguna, panduan, dan FAQ untuk mendukung pengguna Anda.'
     }
   ]
 }

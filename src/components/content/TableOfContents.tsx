@@ -60,7 +60,7 @@ export default function TableOfContents({
       className='hidden max-h-[calc(100vh-9rem-113px)] sticky top-36 overflow-auto lg:block'
     >
       <h3 className='text-foreground md:text-xl'>
-        Table of Contents
+        Daftar Isi
       </h3>
       <div className='mt-4 flex flex-col space-y-2 text-base'>
         {toc

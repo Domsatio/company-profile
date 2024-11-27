@@ -49,8 +49,10 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-zinc-400">
               <div className="flex gap-3">
                 <MapPin size={18} />
-                <p>Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan <br />
-                  Ponorogo, Ponorogo, Jawa Timur, 63413</p>
+                <Link href="https://maps.app.goo.gl/Cx5XTNzqEz2KKPji8" target="_blank">
+                  <p>Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan <br />
+                    Ponorogo, Ponorogo, Jawa Timur, 63413</p>
+                </Link>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} />
@@ -58,7 +60,9 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                <p>08140261540</p>
+                <Link href='https://wa.me/628140261540' target="_blank">
+                  <p>08140261540</p>
+                </Link>
               </div>
             </div>
           </div>
