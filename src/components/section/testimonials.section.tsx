@@ -12,13 +12,13 @@ const Testimonials = () => {
   return (
     <SectionWrapper className="flex flex-col items-center justify-center">
       <div className="self-start md:self-center md:text-center space-y-3 md:space-y-4">
-        <p className='text-[#FF842C] text-lg md:text-xl'>WHAT THEY SAY</p>
+        <p className='text-[#FF842C] text-lg md:text-xl uppercase'>APA KATA MEREKA</p>
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex md:justify-center items-center">
-          Our User Kind Words{' '}
+          Testimoni Pelanggan Kami{' '}
           <Image src={OrangeChecklist} alt="Rocket Icon" width={40} height={40} className="mx-2 hidden md:block" />
         </h1>
         <p className="text-sm sm:text-base md:text-lg">
-          Discover what our valued users have to say about their experiences.
+          Temukan apa yang dikatakan pelanggan kami tentang pengalaman mereka.
         </p>
       </div>
       <Carousel

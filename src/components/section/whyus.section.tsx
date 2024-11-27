@@ -9,7 +9,7 @@ const Testimonials = () => {
     <SectionWrapper className="flex flex-col items-center justify-center">
       <div className="self-start md:self-center md:text-center space-y-3 md:space-y-4">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight flex md:justify-center items-center">
-          Why Choose{" "}
+          Mengapa Pilih{" "}
           <Image
             src={Smile}
             alt="Smile Icon"
@@ -17,10 +17,10 @@ const Testimonials = () => {
             width={40}
             className="mx-2 hidden md:block"
           />
-          Us
+          Kami
         </h1>
         <p className="text-sm sm:text-base md:text-lg flex justify-center items-center">
-          Discover why our clients trust us. Experience excellence, reliability, and innovation in every solution we deliver.
+          Temukan mengapa klien kami mempercayai kami. Rasakan keunggulan, keandalan, dan inovasi dalam setiap solusi yang kami berikan.
           <Image
             src={Thunder}
             alt="Thunder Icon"
@@ -39,7 +39,7 @@ const Testimonials = () => {
               </div>
               <h4 className="text-xl font-semibold">{item.title}</h4>
             </div>
-            <p>{item.description}</p>
+            <p className="text-sm md:text-base">{item.description}</p>
           </div>
         )}
       </div>

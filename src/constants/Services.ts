@@ -9,27 +9,27 @@ export type ServicesProps = {
 
 export const Services: ServicesProps[] = [
   {
-    title: 'Web Development',
+    title: 'Pengembangan Web',
     icon: Monitor,
-    body: 'Create modern, responsive websites and web applications tailored to your business needs.',
+    body: 'Buat situs web dan aplikasi web modern yang responsif sesuai dengan kebutuhan bisnis Anda.',
     points: ['React', 'Next.js', 'WordPress', 'Webflow']
   },
   {
-    title: 'Mobile Development',
+    title: 'Pengembangan Aplikasi Mobile',
     icon: TabletSmartphone,
-    body: 'Build native and cross-platform mobile applications that deliver exceptional user experiences.',
+    body: 'Bangun aplikasi mobile native dan lintas platform yang memberikan pengalaman pengguna yang luar biasa.',
     points: ['Android', 'React Native', 'Flutter']
   },
   {
-    title: 'UI/UX Design',
+    title: 'Desain UI/UX',
     icon: Paintbrush,
-    body: 'Design intuitive and engaging user interfaces that enhance user satisfaction and conversion rates.',
+    body: 'Desain antarmuka pengguna yang intuitif dan menarik yang meningkatkan kepuasan dan tingkat konversi pengguna.',
     points: ['Wireframing', 'Prototyping', 'User Research', 'Visual Design']
   },
   {
-    title: 'IT Consulting',
+    title: 'Konsultasi IT',
     icon: MessageSquareText,
-    body: 'Strategic technology consulting to help your business make informed decisions and achieve goals.',
+    body: 'Konsultasi teknologi strategis untuk membantu bisnis Anda membuat keputusan yang tepat dan mencapai tujuan.',
     points: ['Strategy', 'Architecture', 'Security', 'Integration']
   }
 ]

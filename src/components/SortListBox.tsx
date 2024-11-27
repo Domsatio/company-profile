@@ -16,7 +16,7 @@ type SortListboxProps = {
 
 export default function SortListbox({ selected, setSelected, options }: SortListboxProps) {
   return (
-    <div className="w-full max-w-[200px]">
+    <div className="w-full max-w-[250px]">
       <Select>
         <SelectTrigger className="w-full">
           <SelectValue placeholder={selected.name} />

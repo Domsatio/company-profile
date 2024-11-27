@@ -10,30 +10,30 @@ export type WhyUsProps = {
 export const WhyUs: WhyUsProps[] = [
   {
     id: 1,
-    title: 'A Team You Can Trust',
+    title: 'Tim Terampil',
     description:
-      'Our team of skilled developers and IT consultants combines technical expertise with a commitment to excellence. We build long-lasting relationships through transparency, reliability, and top-notch service.',
+      'Tim kami yang terdiri dari pengembang dan konsultan TI yang terampil menggabungkan keahlian teknis dengan komitmen terhadap keunggulan. Kami membangun hubungan jangka panjang melalui transparansi, keandalan, dan layanan terbaik.',
     icon: Users
   },
   {
     id: 2,
-    title: 'Innovative Solutions',
+    title: 'Solusi Inovatif',
     description:
-      'We specialize in creating custom software and IT solutions that align perfectly with your business goals. Our innovative approach ensures that your technology evolves with your needs.',
+      'Kami mengkhususkan diri dalam menciptakan perangkat lunak kustom dan solusi TI yang selaras sempurna dengan tujuan bisnis Anda. Pendekatan inovatif kami memastikan bahwa teknologi Anda berkembang sesuai dengan kebutuhan Anda.',
     icon: Rocket
   },
   {
     id: 3,
-    title: 'Scalable',
+    title: 'Skalabilitas',
     description:
-      'Our solutions are built to grow with your business. Whether you’re expanding your team, launching new products, or entering new markets, our systems are designed to handle your evolving needs seamlessly.',
+      'Solusi kami dibangun untuk tumbuh bersama bisnis Anda. Apakah Anda sedang memperluas tim, meluncurkan produk baru, atau memasuki pasar baru, sistem kami dirancang untuk menangani kebutuhan Anda yang terus berkembang dengan lancar.',
     icon: Expand
   },
   {
     id: 4,
-    title: 'Personalized',
+    title: 'Personalisasi',
     description:
-      'We understand that every business is unique. That’s why we take the time to listen, analyze, and deliver customized strategies and technologies that align perfectly with your specific goals.',
+      'Kami memahami bahwa setiap bisnis itu unik. Itulah mengapa kami meluangkan waktu untuk mendengarkan, menganalisis, dan memberikan strategi serta teknologi yang disesuaikan yang selaras sempurna dengan tujuan spesifik Anda.',
     icon: Star
   }
 ]

@@ -14,7 +14,7 @@ export type NavRoutesProps = {
 
 export const NavRoutes: NavRoutesProps[] = [
   {
-    label: 'Services',
+    label: 'Layanan',
     children: Services.map((service) => ({
       title: service.title,
       href: `/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`,
@@ -26,7 +26,7 @@ export const NavRoutes: NavRoutesProps[] = [
     href: '/blog'
   },
   {
-    label: 'About Us',
+    label: 'Tentang Kami',
     href: '/about'
   }
 ]

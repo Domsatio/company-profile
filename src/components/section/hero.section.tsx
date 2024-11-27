@@ -12,20 +12,19 @@ const Hero = () => {
         <div className="space-y-3 sm:space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold">
             We Help You Achieve{' '}
-            <strong className="dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+            <strong className="px-1.5 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
               Your <i>Goals</i>
             </strong>
           </h1>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-tight">
-            <strong className="pe-1 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+            <strong className="pe-2.5 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
               <i>Grow</i>
             </strong>{' '}
             Your Business
           </h1>
         </div>
         <p className="text-base sm:text-lg md:max-w-2xl md:mx-auto">
-          We are a technology company dedicated to helping businesses achieve their goals through innovative digital
-          solutions and strategic growth partnerships.
+          Kami adalah perusahaan teknologi yang berdedikasikan untuk membantu bisnis mencapai tujuan mereka melalui solusi digital yang inovatif dan kemitraan pertumbuhan yang strategis.
         </p>
       </div>
       {/* <Button variant="outline" className="h-12 sm:h-14 w-40 sm:w-48 rounded-full font-semibold text-base sm:text-lg">

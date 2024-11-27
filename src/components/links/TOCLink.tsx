@@ -23,7 +23,7 @@ export default function TOCLink({
       href={`#${id}`}
       id={`link-${id}`}
       className={clsx(
-        'font-normal hover:text-foreground focus:outline-none',
+        'font-normal hover:text-foreground transition-colors focus:outline-none',
         {
           'text-foreground': activeSection === id,
           'text-foreground/50': activeSection !== id
