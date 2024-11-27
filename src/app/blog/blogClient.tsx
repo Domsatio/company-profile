@@ -126,8 +126,6 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
         data-fade="4"
       >
         <Button
-          // variant=""
-          className="text-sm !font-medium"
           onClick={() => {
             setIsEnglish((b) => !b)
             clearSearch()

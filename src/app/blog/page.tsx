@@ -24,8 +24,6 @@ export const metadata: Metadata = {
 export default async function page() {
   const files = await getAllFilesFrontmatter("blog");
   const posts = sortByDate(files);
-
-  // Accumulate tags and remove duplicate
   const tags = getTags(posts);
 
   return (

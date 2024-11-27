@@ -35,7 +35,7 @@ const Testimonials = () => {
             data={TestimonialsData}
             renderItem={(item: TestimonialProps, index: number) => {
               return (
-                <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="sm:basis-1/2 xl:basis-1/3">
                   <Card className="h-56 md:h-80 rounded-3xl border border-border bg-background hover:bg-primary hover:text-primary-foreground transition-colors">
                     <CardContent className="flex flex-col justify-between h-full p-4 md:p-10">
                       <p className="text-sm md:text-base">{`"${item.statement}"`}</p>
