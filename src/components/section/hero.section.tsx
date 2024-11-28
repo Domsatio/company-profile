@@ -2,11 +2,12 @@ import { Flame } from 'lucide-react'
 import { SectionWrapper } from '../Layout'
 import { Button } from '../ui/button'
 import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
     <SectionWrapper className="min-h-[90dvh] flex items-center justify-center">
-      <div className="md:text-center space-y-8">
+      <div className="md:text-center flex flex-col space-y-8 md:items-center">
         <div className="inline-flex items-center rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm">
           <Flame size={16} />
           <span className="ml-1.5 sm:ml-2">Introducing Our Company</span>
@@ -28,9 +29,11 @@ const Hero = () => {
         <p className="text-base sm:text-lg md:max-w-2xl md:mx-auto">
           Kami adalah perusahaan teknologi yang berdedikasikan untuk membantu bisnis mencapai tujuan mereka melalui solusi digital yang inovatif dan kemitraan pertumbuhan yang strategis.
         </p>
-        <Button variant="outline" className="h-12 sm:h-14 w-40 sm:w-48 rounded-full font-semibold text-base sm:text-lg">
-          Get Started <ArrowUpRight className="size-4 sm:size-5" />
-        </Button>
+        <Link href='/contact'>
+          <Button variant="outline" className="h-12 sm:h-14 px-6 rounded-full font-semibold text-base sm:text-lg">
+            Mulai Sekarang <ArrowUpRight className="size-4 sm:size-5" />
+          </Button>
+        </Link>
       </div>
     </SectionWrapper>
   )

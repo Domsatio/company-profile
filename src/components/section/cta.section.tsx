@@ -6,7 +6,7 @@ const CTA = () => {
   return (
     <SectionWrapper>
       <div className='rounded-3xl flex items-center justify-center text-black bg-gradient-to-tr from-primary-300 to-primary-400 p-6 md:p-10'>
-        <div className="md:text-center space-y-4 sm:space-y-6 md:space-y-8">
+        <div className="md:text-center flex flex-col space-y-4 sm:space-y-6 md:space-y-8">
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight">
             Siap Mengubah Bisnis Anda?
           </h1>
