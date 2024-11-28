@@ -148,7 +148,7 @@ const NavSheet = () => (
       <div className="flex flex-col gap-5 mt-5">
         <SheetList />
         <Link href='/contact'>
-          <Button size="lg" className="block rounded-full md:text-base">
+          <Button size="lg" className="w-full rounded-full md:text-base">
             Hubungi Kami
           </Button>
         </Link>

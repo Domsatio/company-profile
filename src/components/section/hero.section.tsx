@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Hero = () => {
   return (
     <SectionWrapper className="min-h-[90dvh] flex items-center justify-center">
-      <div className="md:text-center flex flex-col space-y-8 md:items-center">
+      <div className="md:text-center flex flex-col space-y-8 items-start md:items-center">
         <div className="inline-flex items-center rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm">
           <Flame size={16} />
           <span className="ml-1.5 sm:ml-2">Introducing Our Company</span>

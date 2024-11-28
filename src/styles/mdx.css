@@ -45,7 +45,11 @@
 
 .prose hr {
   border-image: linear-gradient(to right, hsl(var(--clr-primary-300)), hsl(var(--clr-primary-400))) 1;
-  @apply border-b;
+  @apply border-b my-12;
+}
+
+.prose code {
+  @apply bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm rounded-sm py-1 px-2;
 }
 
 .prose code {
