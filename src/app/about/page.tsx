@@ -39,7 +39,7 @@ const About = () => {
 
       <div className="space-y-16">
         <div className="space-y-4">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Tentang Kami</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 accent">Tentang Kami</h1>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque sint possimus, velit doloremque soluta facere cupiditate quasi quas odit cumque voluptatem placeat praesentium ducimus, temporibus, minima et doloribus consequuntur. Consequatur iure eveniet fugit at, explicabo eaque consectetur ab blanditiis odit quisquam! Facere fugiat nostrum dolore quis enim reprehenderit nam qui nesciunt, rerum excepturi numquam error quas recusandae nisi? Commodi enim, necessitatibus mollitia magni aspernatur amet? Incidunt ab sed ea, in ipsam alias aliquam illo. Nihil delectus error fugit repudiandae! Ratione architecto delectus aliquam possimus, perspiciatis nihil quos cum ad alias tenetur ex quasi distinctio optio, nostrum at provident. Voluptatibus cum, sunt modi minima nihil non maxime dolorum recusandae numquam deleniti soluta rerum molestiae. Aut omnis repellendus dicta asperiores quam error dolore, fugiat ullam! Esse iure aut quos molestiae facere nemo, quibusdam ea nobis dolore dolor rem, ratione totam delectus eaque pariatur repudiandae in ducimus numquam doloremque sed doloribus animi natus?
           </p>

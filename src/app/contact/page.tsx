@@ -37,7 +37,7 @@ const About = () => {
 
       <div className="space-y-16">
         <div className="space-y-4">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Hubungi Kami</h1>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 accent">Hubungi Kami</h1>
           <p>
             Jika Anda tertarik dengan layanan kami, memiliki pertanyaan, atau hanya ingin menyapa, jangan ragu untuk menghubungi kami. Kami akan segera merespons Anda secepat mungkin.
           </p>

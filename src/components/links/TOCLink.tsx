@@ -23,10 +23,10 @@ export default function TOCLink({
       href={`#${id}`}
       id={`link-${id}`}
       className={clsx(
-        'font-normal hover:text-foreground transition-colors focus:outline-none',
+        'font-medium text-sm hover:text-foreground dark:hover:text-foreground transition-colors focus:outline-none',
         {
           'text-foreground': activeSection === id,
-          'text-foreground/50': activeSection !== id
+          'text-gray-400 dark:text-gray-600': activeSection !== id
         }
       )}
       style={{ marginLeft: (level - minLevel) * 16 }}

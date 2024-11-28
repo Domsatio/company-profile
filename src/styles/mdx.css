@@ -1,7 +1,3 @@
-.prose {
-  @apply max-w-[50rem];
-}
-
 .prose p {
   @apply my-5;
 }
@@ -11,20 +7,26 @@
 }
 
 .prose ol {
-  @apply list-decimal pl-4 space-y-2;
+  @apply list-decimal pl-8 space-y-2 my-5;
 }
 
 .prose ul {
-  @apply list-disc pl-4 space-y-2;
+  @apply list-disc pl-8 space-y-2 my-5;
+}
+
+.prose > ol > li,
+.prose > ul > li {
+  @apply my-2 pl-2;
+}
+
+.prose > ol > li > :first-child,
+.prose > ul > li > :first-child {
+  @apply mt-0;
 }
 
 .prose > ol > li > :last-child,
 .prose > ul > li > :last-child {
   @apply mb-0;
-}
-.prose > ol > li > :first-child,
-.prose > ul > li > :first-child {
-  @apply mt-0;
 }
 
 .prose blockquote p {
@@ -37,37 +39,29 @@
 }
 
 .prose blockquote {
-  border-image: linear-gradient(to top, #00ff94, #00e0f3, #00c4fd) 1;
-  @apply border-l-4 pl-4;
+  border-image: linear-gradient(to top, hsl(var(--clr-primary-300)), hsl(var(--clr-primary-400))) 1;
+  @apply border-l-4 pl-4 text-gray-600 dark:text-gray-400;
 }
 
 .prose hr {
-  border-image: linear-gradient(to right, #1b72ff, #007afd, #1bffff) 1;
+  border-image: linear-gradient(to right, hsl(var(--clr-primary-300)), hsl(var(--clr-primary-400))) 1;
   @apply border-b;
 }
 
+.prose code {
+  @apply bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-sm rounded-sm py-1 px-2;
+}
+
 .mdx.prose :where(h1, h2, h3, h4) {
-  scroll-margin-top: 100px;
-  position: relative;
-  display: block;
-  margin-right: 0.5rem;
-  width: -moz-fit-content;
-  width: fit-content;
+  @apply relative block mr-2 mt-12 mb-6 w-fit;
+}
+
+.mdx.prose :where(h1, h2, h3, h4):first-of-type {
+  @apply mt-0;
 }
 
 .mdx.prose :where(h1, h2, h3, h4) > a {
-  border-bottom: none;
-}
-
-/* Custom Heading Style for Projects */
-.mdx.prose.projects blockquote {
-  font-style: normal;
-}
-.mdx.prose.projects blockquote:first-of-type h2 {
-  margin-top: 1rem;
-}
-.mdx.prose.projects blockquote.with-icons h2 {
-  margin-bottom: 0;
+  @apply border-b-0;
 }
 
 /* Apply shadow to Youtube Embed */
@@ -84,18 +78,17 @@
 }
 
 .hash-anchor:hover {
-  background-image: linear-gradient(to right, #1b72ff, #007afd, #1bffff);
+  background-image: linear-gradient(to right, hsl(var(--clr-primary-300)), hsl(var(--clr-primary-400)));
   background-size: 100% 2px;
 }
 
 .hash-anchor:hover:after,
 .hash-anchor:focus:after {
-  visibility: visible;
+  @apply visible;
 }
 
 .hash-anchor:after {
-  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg;
-  content: '#';
+  @apply invisible absolute -right-5 top-1/2 -translate-y-1/2 text-lg content-['#'] text-primary-400;
 }
 /* #endregion  /**======== Hash Anchor =========== */
 
@@ -191,33 +184,3 @@ html.dark .prose [data-theme='light'] {
   @apply whitespace-pre;
 }
 /* #endregion  /**======== Shiki =========== */
-
-html.dark {
-  --shiki-color-text: #e1e4e8;
-  --shiki-color-background: #0e1111;
-
-  --shiki-token-constant: #79b8ff;
-  --shiki-token-string: #9ecbff;
-  --shiki-token-comment: #6a737d;
-  --shiki-token-keyword: #f97583;
-  --shiki-token-parameter: #e1e4e8;
-  --shiki-token-function: #e1e4e8;
-  --shiki-token-string-expression: #85e89d;
-  --shiki-token-punctuation: #e1e4e8;
-  --shiki-token-link: #e1e4e8;
-}
-
-html.light {
-  --shiki-color-text: #24292e;
-  --shiki-color-background: #fff;
-
-  --shiki-token-constant: #005cc5;
-  --shiki-token-string: #032f62;
-  --shiki-token-comment: #6a737d;
-  --shiki-token-keyword: #d73a49;
-  --shiki-token-parameter: #24292e;
-  --shiki-token-function: #24292e;
-  --shiki-token-string-expression: #22863a;
-  --shiki-token-punctuation: #24292e;
-  --shiki-token-link: #24292e;
-}

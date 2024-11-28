@@ -41,7 +41,7 @@ export default async function page() {
       </Breadcrumb>
 
       <div className="space-y-1">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Blog</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold py-2 accent">Blog</h1>
         <p className="text-sm md:text-base">
           Jelajahi koleksi artikel, tutorial, dan pembaruan industri kami yang informatif.
         </p>

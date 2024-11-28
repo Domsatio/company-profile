@@ -30,17 +30,15 @@ export default function NextImage({
   const [status, setStatus] = React.useState(
     useSkeleton ? 'loading' : 'complete'
   );
-  const widthIsSet = className?.includes('w-') ?? false;
 
   return (
     <figure
-      style={!widthIsSet ? { width: `${width}px` } : undefined}
+      style={{ width: '100%' }}
       className={className}
     >
       <Image
         className={clsx(
           imgClassName,
-          // text-gray to hide alt text
           'bg-gray-400 text-gray-400 ',
           status === 'loading' && clsx('animate-pulse', blurClassName)
         )}

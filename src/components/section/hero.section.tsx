@@ -14,12 +14,12 @@ const Hero = () => {
         <div className="space-y-3 sm:space-y-4">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold">
             We Help You Achieve{' '}
-            <strong className="px-1.5 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+            <strong className="px-1.5 accent">
               Your <i>Goals</i>
             </strong>
           </h1>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-tight">
-            <strong className="pe-2.5 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+            <strong className="pe-2.5 accent">
               <i>Grow</i>
             </strong>{' '}
             Your Business

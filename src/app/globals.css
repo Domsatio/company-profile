@@ -67,11 +67,47 @@
     --clr-primary-400: 180 100% 55%;
     --clr-primary-500: 196 100% 50%;
   }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  .h1 {
+    @apply text-2xl font-bold md:text-4xl;
+  }
+
+  h2,
+  .h2 {
+    @apply text-xl font-bold md:text-3xl;
+  }
+
+  h3,
+  .h3 {
+    @apply text-lg font-bold md:text-2xl;
+  }
+
+  h4,
+  .h4 {
+    @apply text-base font-bold md:text-lg;
+  }
+
+  .accent {
+    @apply dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent;
+  }
+
+  .accent-highlight {
+    @apply bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent;
+  }
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 50px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -105,61 +141,45 @@ html {
   cursor: url('/assets/images/new-tab.png') 10 10, pointer;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+/* .custom-scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  h1,
-  .h1 {
-    @apply text-2xl font-bold md:text-4xl;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
 
-  h2,
-  .h2 {
-    @apply text-xl font-bold md:text-3xl;
-  }
-
-  h3,
-  .h3 {
-    @apply text-lg font-bold md:text-2xl;
-  }
-
-  h4,
-  .h4 {
-    @apply text-base font-bold md:text-lg;
-  }
-
-  .min-h-main {
-    @apply min-h-[calc(100vh-82px)];
-  }
-  .accent {
-    @apply dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent;
-  }
-  .accent-highlight {
-    @apply bg-primary-300/50 dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),
-      linear-gradient(to right, var(--clr-primary-300), var(--clr-primary-400));
+      linear-gradient(to right, hsl(var(--clr-primary-300)), hsl(var(--clr-primary-400)));
     background-size: 100% 2px, 0 2px;
     background-position: 100% 100%, 0 100%;
     background-repeat: no-repeat;
     transition: 0.3s ease;
     transition-property: background-size, color, background-color, border-color;
   }
+
   @media (prefers-reduced-motion: reduce) {
     .animated-underline {
       transition: none;
     }
   }
+
   .animated-underline:hover,
   .animated-underline:focus-visible,
   .project-card:hover .animated-underline,
