@@ -16,6 +16,14 @@ import { HiOutlineClock } from 'react-icons/hi'
 import BlogCard from '@/components/Blog/BlogCard'
 import ListComponent from '@/components/ListComponent'
 import { Separator } from '@/components/ui/separator'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from '@/components/ui/button';
 
 // import { cleanBlogPrefix } from '@/lib/helper.client';
 
@@ -53,7 +61,7 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
         <NextImage
           src={frontmatter.banner}
           alt={`Photo from unsplash: ${frontmatter.banner}`}
-          className="w-full h-[450px]"
+          className="w-full h-52 sm:h-64 md:h-80 lg:h-[450px]"
           imgClassName="w-full h-full object-cover rounded-lg"
           width={1200}
           height={300}
@@ -116,8 +124,8 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
 
       <Separator className='mt-4' />
 
-      <section className="mt-4 lg:grid lg:grid-cols-[auto,250px] lg:gap-8">
-        <article className="mdx prose transition-colors dark:prose-invert">
+      <section className="mt-4 lg:grid lg:grid-cols-[minmax(0,1fr),250px] lg:gap-8">
+        <article className="mdx prose mx-auto w-full transition-colors dark:prose-invert">
           <Component
             components={
               {
@@ -129,9 +137,26 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
         </article>
 
         <aside>
-          <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+          <div className='sticky top-36 hidden lg:block'>
+            <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+          </div>
         </aside>
       </section>
+
+      {/* TOC Drawer */}
+      <Drawer>
+        <DrawerTrigger className='fixed bottom-4 left-4 z-50 block lg:hidden' asChild>
+          <Button>Daftar Isi</Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Daftar Isi</DrawerTitle>
+          </DrawerHeader>
+          <div className="mt-4 flex flex-col space-y-2 overflow-auto max-h-[calc(80vh)] text-sm">
+            <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+          </div>
+        </DrawerContent>
+      </Drawer>
 
       {/* GitHub Comment */}
       <figure className='mt-10'>
@@ -140,7 +165,7 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
 
       {/* Recommendations */}
       <div className='mt-10 space-y-4'>
-        <h2 className="dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">Recommendations</h2>
+        <h2 className="accent">Recommendations</h2>
         <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-fade="5">
           <ListComponent
             data={recommendations}

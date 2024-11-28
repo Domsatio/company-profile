@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import TOCLink from '@/components/links/TOCLink';
 
 export type HeadingScrollSpy = Array<{
@@ -57,12 +56,9 @@ export default function TableOfContents({
   return (
     <div
       id='toc-container'
-      className='hidden max-h-[calc(100vh-9rem-113px)] sticky top-36 overflow-auto lg:block'
+      className='max-h-[calc(100vh-9rem-113px)] overflow-auto lg:border lg:px-6 lg:rounded-xl lg:py-5'
     >
-      <h3 className='text-foreground md:text-xl'>
-        Daftar Isi
-      </h3>
-      <div className='mt-4 flex flex-col space-y-2 text-base'>
+      <div className='flex flex-col space-y-2'>
         {toc
           ? toc.map(({ id, level, text }) => (
             <TOCLink
