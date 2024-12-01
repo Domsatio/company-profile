@@ -32,7 +32,7 @@ const Service = () => {
             data={Services}
             renderItem={(item: ServicesProps) => {
               return (
-                <CarouselItem key={item.title} className="sm:basis-1/2 xl:basis-1/3 min-h-64 md:min-h-[375px]">
+                <CarouselItem key={item.title} className="sm:basis-1/2 min-h-64 md:min-h-[375px]">
                   <Card className='h-full rounded-3xl border border-border bg-background hover:bg-primary hover:text-primary-foreground transition-colors'>
                     <CardContent className="flex flex-col justify-between gap-6 h-full p-4 md:p-10">
                       <div className="space-y-2">
@@ -48,7 +48,7 @@ const Service = () => {
                           renderItem={(item, indexx) => (
                             <div
                               key={indexx}
-                              className='rounded-full border border-border bg-[#fafafa] text-black px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm'
+                              className='rounded-full border border-border bg-[#fafafa] text-black px-3 py-1 text-xs md:text-sm'
                             >
                               <span>{item}</span>
                             </div>

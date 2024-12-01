@@ -20,6 +20,7 @@ import { Email } from "@/types/email.type"
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [message, setMessage] = useState<string | null>(null);
 
   const {
     register,
@@ -28,14 +29,23 @@ const ContactForm = () => {
     formState: { errors },
   } = useForm<Email>()
 
+  const showMessage = (msg: string) => {
+    setMessage(msg);
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000); // 5 seconds
+  };
+
   const onSubmit: SubmitHandler<Email> = async (data) => {
     setIsLoading(true)
     try {
       await services.sendEmail(data)
     } catch (error) {
       console.log(error)
+      showMessage("Email gagal terkirim")
     } finally {
       setIsLoading(false)
+      showMessage("Email berhasil terkirim")
     }
   }
 
@@ -47,6 +57,7 @@ const ContactForm = () => {
           type="text"
           id="name"
           placeholder="Masukkan nama Anda"
+          className="placeholder:text-sm"
           {...register("name", { required: true })}
         />
         {errors.name && <span className="text-red-500 text-sm">Nama harus diisi</span>}
@@ -57,6 +68,7 @@ const ContactForm = () => {
           type="email"
           id="email"
           placeholder="Masukkan email Anda"
+          className="placeholder:text-sm"
           {...register("email", { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })}
         />
         {errors.email && <span className="text-red-500 text-sm">Email harus diisi</span>}
@@ -67,6 +79,7 @@ const ContactForm = () => {
           type="number"
           id="phone"
           placeholder="Masukkan nomor telepon Anda"
+          className="placeholder:text-sm"
           {...register("phone", { required: true })}
         />
         {errors.phone && <span className="text-red-500 text-sm">Nomor telepon harus diisi</span>}
@@ -89,6 +102,12 @@ const ContactForm = () => {
                   {title}
                 </SelectItem>
               )} />
+            <SelectItem
+              value='lainnya'
+              className="cursor-pointer"
+            >
+              Lainnya
+            </SelectItem>
           </SelectContent>
         </Select>
         {errors.service && <span className="text-red-500 text-sm">Layanan harus diisi</span>}
@@ -98,7 +117,7 @@ const ContactForm = () => {
         <Textarea
           id="message"
           placeholder="Deskripsikan proyek yang ingin Anda kerjakan bersama kami"
-          className="min-h-[100px]"
+          className="min-h-[100px] placeholder:text-sm"
           {...register("message", { required: true })}
         />
         {errors.message && <span className="text-red-500 text-sm">Deskripsi proyek harus diisi</span>}
@@ -106,6 +125,7 @@ const ContactForm = () => {
       <Button type="submit" size="lg" className="rounded-full flex items-center justify-center" disabled={isLoading}>
         {isLoading ? <><Loader2 className="size-4 animate-spin" /> Mengirim...</> : <>Kirim <Send className="size-4" /></>}
       </Button>
+      {message && <p className="text-green-500 mt-4">{message}</p>}
     </form>
   )
 }

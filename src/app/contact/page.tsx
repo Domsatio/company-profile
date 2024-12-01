@@ -47,7 +47,7 @@ const About = () => {
                 <MapPin size={18} />
               </div>
               <Link href="https://maps.app.goo.gl/Cx5XTNzqEz2KKPji8" target="_blank">
-                <p>
+                <p className="text-sm md:text-base">
                   Jalan Puspowarno No. 94, RT 3, RW 1, Mangkujayan, Ponorogo, Ponorogo, Jawa Timur, 63413
                 </p>
               </Link>
@@ -56,14 +56,14 @@ const About = () => {
               <div className='p-2 size-fit rounded-full bg-[#ff842c] text-white'>
                 <Mail size={18} />
               </div>
-              <p className="">domsattech@gmail.com</p>
+              <p className="text-sm md:text-base">domsattech@gmail.com</p>
             </div>
             <div className="flex flex-row gap-4 items-center">
               <div className='p-2 size-fit rounded-full bg-[#ff842c] text-white'>
                 <Phone size={18} />
               </div>
               <Link href='https://wa.me/628140261540' target="_blank">
-                <p className="">08140261540</p>
+                <p className="text-sm md:text-base">08140261540</p>
               </Link>
             </div>
           </div>

@@ -20,7 +20,7 @@ export const SectionWrapper = ({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] md:px-10 xl:px-40">
+    <div className="font-[family-name:var(--font-geist-sans)] mx-auto max-w-3xl xl:max-w-5xl">
       <Navbar />
       <main className="min-h-screen">
         {children}

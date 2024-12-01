@@ -8,11 +8,11 @@ export const EmailAdmin = ({ name, email, phone, service, message }: Email) => {
     <Html>
       <Section>
         <Text style={heading}>Hi Domsat!</Text>
-        <Text style={text}>Name: {name}</Text>
+        <Text style={text}>Nama: {name}</Text>
         <Text style={text}>Email: {email}</Text>
-        <Text style={text}>Phone: {phone}</Text>
-        <Text style={text}>Service: {service}</Text>
-        <Text style={text}>Message: {message}</Text>
+        <Text style={text}>No Telepon: {phone}</Text>
+        <Text style={text}>Layanan yang dipesan: {service}</Text>
+        <Text style={text}>Deskripsi proyek: {message}</Text>
       </Section>
     </Html>
   );

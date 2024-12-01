@@ -3,9 +3,8 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '../ui/button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { NavChildrenProps, NavRoutes } from '@/constants/NavRoutes'
-import { AlignJustify } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import DomsatLogo from '../../../public/assets/images/Domsat.svg'
 import ListComponent from '../ListComponent'
@@ -21,11 +20,90 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+
+const Menu = () => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger className='fixed top-4 right-4 z-50 [&[data-state=open]>svg]:rotate-180 flex md:hidden' asChild>
+        <Button className='text-xs px-3 rounded-full'>
+          Menu
+          <ChevronDown size={16} className='transition-transform duration-200' />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align='end' className="w-56 rounded-3xl bg-background">
+        <ListComponent
+          data={NavRoutes}
+          renderItem={(route) => (
+            <DropdownMenuItem key={route.label} className='py-3'>
+              {route.children ? (
+                // <Accordion type="single" className='space-y-2'>
+                //   <AccordionItem value={route.label}>
+                //     <AccordionTrigger className='py-0'>
+                //       {route.label}
+                //     </AccordionTrigger>
+                //     <ListComponent
+                //       data={route.children}
+                //       renderItem={(child: NavChildrenProps) => (
+                //         <Link
+                //           href={child.href}
+                //           key={child.title}
+                //           className='ml-3'
+                //         >
+                //           <AccordionContent className='px-4 text-sm md:text-base'>
+                //             {child.title}
+                //           </AccordionContent>
+                //         </Link>
+                //       )}
+                //     />
+                //   </AccordionItem>
+                // </Accordion>
+                <div className='flex flex-col gap-6'>
+                  <p className='text-sm'>{route.label}</p>
+                  <ListComponent
+                    data={route.children}
+                    renderItem={(child: NavChildrenProps) => (
+                      <Link
+                        href={child.href}
+                        key={child.title}
+                        className='ml-3'
+                      >
+                        {child.title}
+                      </Link>
+                    )}
+                  />
+                </div>
+              ) : (
+                <Link href={route.href} className='w-full'>
+                  {route.label}
+                </Link>
+              )}
+            </DropdownMenuItem>
+          )}
+        />
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className='flex justify-between'>
+          Dark Mode
+          <ToggleDarkMode />
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <Link href='/contact' className='w-full'>
+            <Button className="w-full rounded-full text-sm">
+              Hubungi Kami
+            </Button>
+          </Link>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -100,68 +178,11 @@ const NavList = ({ pathname }: { pathname: string }) => {
   )
 }
 
-const SheetList = () => (
-  <ListComponent
-    data={NavRoutes}
-    renderItem={(route) => (
-      route.children ? (
-        <Accordion key={route.label} type="multiple" className="w-full">
-          <AccordionItem value={route.label}>
-            <AccordionTrigger className='py-0 text-base font-normal'>{route.label}</AccordionTrigger>
-            <ListComponent
-              data={route.children}
-              renderItem={(child) => (
-                <AccordionContent key={child.title} className='ps-5 pt-5 pb-0'>
-                  <Link
-                    href={child.href}
-                  >
-                    {child.title}
-                  </Link>
-                </AccordionContent>
-              )}
-            />
-          </AccordionItem>
-        </Accordion>
-      ) : (
-        <Link
-          href={route.href}
-          key={route.label}
-        >
-          {route.label}
-        </Link>
-      )
-    )}
-  />
-)
-
-const NavSheet = () => (
-  <Sheet defaultOpen={false}>
-    <SheetTrigger className="md:hidden" asChild>
-      <Button variant="ghost" size="icon">
-        <AlignJustify size={24} />
-      </Button>
-    </SheetTrigger>
-    <SheetContent>
-      <SheetHeader>
-        <SheetTitle>Menu</SheetTitle>
-      </SheetHeader>
-      <div className="flex flex-col gap-5 mt-5">
-        <SheetList />
-        <Link href='/contact'>
-          <Button size="lg" className="w-full rounded-full md:text-base">
-            Hubungi Kami
-          </Button>
-        </Link>
-      </div>
-    </SheetContent>
-  </Sheet>
-)
-
 export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <header className="px-5 md:px-0 py-4 flex items-center justify-between">
+    <header className="px-5 md:px-0 py-4 min-h-[4.25rem] flex items-center justify-between">
       <div className="md:flex md:space-x-8">
         <Link href="/" className="flex items-center space-x-3">
           <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
@@ -171,15 +192,15 @@ export default function Navbar() {
           <NavList pathname={pathname} />
         </nav>
       </div>
-      <div className="flex items-center gap-2">
-        <NavSheet />
+      <div className="hidden md:flex items-center gap-2">
         <ToggleDarkMode />
-        <Link href='/contact' className="hidden md:block">
+        <Link href='/contact'>
           <Button size="lg" className="block rounded-full md:text-base">
             Hubungi Kami
           </Button>
         </Link>
       </div>
+      <Menu />
     </header>
   )
 }

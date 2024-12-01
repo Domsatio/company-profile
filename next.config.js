@@ -10,7 +10,7 @@ const nextConfig = {
       }
     ]
   },
-  transpilePackages: ['three']
+  transpilePackages: []
 }
 
 module.exports = nextConfig

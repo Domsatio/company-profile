@@ -135,7 +135,7 @@ export default function BlogClient({ posts, tags }: { posts: BlogFrontmatter[]; 
         </Button>
         <SortListbox selected={sortOrder} setSelected={setSortOrder} options={sortOptions} />
       </div>
-      <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" data-fade="5">
+      <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-fade="5">
         {currentPosts.length > 0 ? (
           <ListComponent
             data={currentPosts}
