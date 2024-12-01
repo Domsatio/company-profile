@@ -1,5 +1,15 @@
 import * as React from 'react';
 import TOCLink from '@/components/links/TOCLink';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
+import { TableOfContentsIcon } from 'lucide-react';
 
 export type HeadingScrollSpy = Array<{
   id: string;
@@ -12,6 +22,46 @@ type TableOfContentsProps = {
   activeSection: string | null;
   minLevel: number;
 };
+
+export const TOCDrawer = ({ toc, activeSection, minLevel }: TableOfContentsProps) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  return (
+    <Drawer>
+      <DrawerTrigger className='fixed bottom-4 right-20 z-50 block lg:hidden' asChild>
+        <Button
+          className={cn(
+            "fixed w-12 h-12 rounded-full transition-opacity duration-200",
+            isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+          )}
+        >
+          <TableOfContentsIcon />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Daftar Isi</DrawerTitle>
+        </DrawerHeader>
+        <div className="mt-4 flex flex-col space-y-2 overflow-auto max-h-[calc(80vh)] text-sm">
+          <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
+        </div>
+      </DrawerContent>
+    </Drawer>
+  )
+}
 
 export default function TableOfContents({
   toc,

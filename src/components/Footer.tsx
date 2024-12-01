@@ -39,7 +39,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-800 dark:bg-background py-10 md:py-16 rounded-none md:rounded-t-3xl">
       <div className="px-5 md:px-20 dark:md:px-0 space-y-8">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-4">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-4">
           {/* Brand Section */}
           <div className="w-full space-y-7">
             <div className="flex items-center gap-3">

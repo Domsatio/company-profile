@@ -1,4 +1,3 @@
-import { Flame } from 'lucide-react'
 import { SectionWrapper } from '../Layout'
 import { Button } from '../ui/button'
 import { ArrowUpRight } from 'lucide-react'
@@ -8,18 +7,14 @@ const Hero = () => {
   return (
     <SectionWrapper className="min-h-[90dvh] flex items-center justify-center">
       <div className="md:text-center flex flex-col space-y-8 items-start md:items-center">
-        <div className="inline-flex items-center rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm">
-          <Flame size={16} />
-          <span className="ml-1.5 sm:ml-2">Introducing Our Company</span>
-        </div>
         <div className="space-y-3 sm:space-y-4">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold">
             We Help You Achieve{' '}
             <strong className="px-1.5 accent">
               Your <i>Goals</i>
             </strong>
           </h1>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-tight">
             <strong className="pe-2.5 accent">
               <i>Grow</i>
             </strong>{' '}

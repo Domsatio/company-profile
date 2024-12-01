@@ -3,7 +3,7 @@ import React from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { BlogFrontmatter, BlogType } from '@/types/frontmatter.type'
 import MDXComponents from '@/components/content/MDXcomponents'
-import TableOfContents, { HeadingScrollSpy } from '@/components/content/TableOfContents'
+import TableOfContents, { HeadingScrollSpy, TOCDrawer } from '@/components/content/TableOfContents'
 import useScrollSpy from '@/hooks/useScrollspr'
 import Comment from '@/components/content/Comment'
 import NextImage from '@/components/NextImage'
@@ -16,15 +16,6 @@ import { HiOutlineClock } from 'react-icons/hi'
 import BlogCard from '@/components/Blog/BlogCard'
 import ListComponent from '@/components/ListComponent'
 import { Separator } from '@/components/ui/separator'
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Button } from '@/components/ui/button';
-
 // import { cleanBlogPrefix } from '@/lib/helper.client';
 
 type SingleBlogPageProps = {
@@ -144,19 +135,7 @@ export default function SingleBlogClient({ code, frontmatter, recommendations }:
       </section>
 
       {/* TOC Drawer */}
-      <Drawer>
-        <DrawerTrigger className='fixed bottom-4 left-4 z-50 block lg:hidden' asChild>
-          <Button>Daftar Isi</Button>
-        </DrawerTrigger>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle>Daftar Isi</DrawerTitle>
-          </DrawerHeader>
-          <div className="mt-4 flex flex-col space-y-2 overflow-auto max-h-[calc(80vh)] text-sm">
-            <TableOfContents toc={toc} minLevel={minLevel} activeSection={activeSection} />
-          </div>
-        </DrawerContent>
-      </Drawer>
+      <TOCDrawer toc={toc} minLevel={minLevel} activeSection={activeSection} />
 
       {/* GitHub Comment */}
       <figure className='mt-10'>
