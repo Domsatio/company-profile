@@ -26,7 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+// import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const Menu = () => {
   return (
