@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 const NotFound = () => {
   return (
     <SectionWrapper className="min-h-[90dvh] flex items-center justify-center">
-      <div className="md:text-center flex flex-col space-y-8 items-start md:items-center">
+      <div className="md:text-center flex flex-col items-start md:items-center">
         <Image src={NotFoundImage} alt="404" className="h-96" />
         <p className="text-2xl font-bold mt-5">
           Halaman yang Anda Cari Tidak Ditemukan.
         </p>
-        <p className="text-center mt-2">
+        <p className="mt-2">
           Halaman yang Anda cari mungkin telah dipindah, dihapus, atau tidak ada.
         </p>
         <Link href='/' className="mt-10">
