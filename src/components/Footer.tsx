@@ -60,8 +60,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                <Link href='https://wa.me/628140261540' target="_blank">
-                  <p>08140261540</p>
+                <Link href='https://wa.me/6281450261540' target="_blank">
+                  <p>081450261540</p>
                 </Link>
               </div>
             </div>

@@ -62,8 +62,8 @@ const About = () => {
               <div className='p-2 size-fit rounded-full bg-[#ff842c] text-white'>
                 <Phone size={18} />
               </div>
-              <Link href='https://wa.me/628140261540' target="_blank">
-                <p className="text-sm md:text-base">08140261540</p>
+              <Link href='https://wa.me/6281450261540' target="_blank">
+                <p className="text-sm md:text-base">081450261540</p>
               </Link>
             </div>
           </div>

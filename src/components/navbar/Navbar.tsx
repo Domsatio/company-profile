@@ -31,7 +31,7 @@ import {
 const Menu = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className='fixed top-4 right-4 z-50 [&[data-state=open]>svg]:rotate-180 flex md:hidden' asChild>
+      <DropdownMenuTrigger className='fixed top-4 right-5 z-50 [&[data-state=open]>svg]:rotate-180 flex md:hidden' asChild>
         <Button className='text-xs px-3 rounded-full'>
           Menu
           <ChevronDown size={16} className='transition-transform duration-200' />
