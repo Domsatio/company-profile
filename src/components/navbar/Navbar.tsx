@@ -185,8 +185,8 @@ export default function Navbar() {
     <header className="px-5 md:px-0 py-4 min-h-[4.25rem] flex items-center justify-between">
       <div className="md:flex md:space-x-8">
         <Link href="/" className="flex items-center space-x-3">
-          <Image src={DomsatLogo} alt="Domsat logo" width={30} height={30} />
-          <span className="text-xl font-semibold accent">Domsat</span>
+          <Image src={DomsatLogo} alt="Domsat logo" width={20} height={20} />
+          <span className="text-base font-semibold accent">Domsat</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-3">
           <NavList pathname={pathname} />
