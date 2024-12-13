@@ -18,8 +18,8 @@ const RecentBlog = ({ data }: { data: BlogFrontmatter[] }) => {
         </p>
       </div>
       <div className='w-full flex justify-end'>
-        <Link href='/blog'>
-          <Button>Lihat semua</Button>
+        <Link href='/blog' className='rounded-full'>
+          <Button className='rounded-full'>Lihat semua</Button>
         </Link>
       </div>
       <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3" data-fade="5">

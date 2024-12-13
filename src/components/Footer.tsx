@@ -43,8 +43,8 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="w-full space-y-7">
             <div className="flex items-center gap-3">
-              <Image src={DomsatLogo} alt="Domsat" width={30} height={30} />
-              <span className="text-xl md:text-2xl text-white font-semibold">Domsat</span>
+              <Image src={DomsatLogo} alt="Domsat" width={20} height={20} />
+              <span className="text-base text-white font-semibold">Domsat</span>
             </div>
             <div className="space-y-3 text-sm text-zinc-400">
               <div className="flex gap-3">
