@@ -17,6 +17,7 @@ import { Services } from "@/constants/Services"
 import { useForm, SubmitHandler } from "react-hook-form"
 import services from "@/services/service"
 import { Email } from "@/types/email.type"
+import { cn } from "@/lib/utils"
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -26,6 +27,7 @@ const ContactForm = () => {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<Email>()
 
@@ -40,12 +42,12 @@ const ContactForm = () => {
     setIsLoading(true)
     try {
       await services.sendEmail(data)
-    } catch (error) {
-      console.log(error)
+      reset()
+      showMessage("Email berhasil terkirim")
+    } catch {
       showMessage("Email gagal terkirim")
     } finally {
       setIsLoading(false)
-      showMessage("Email berhasil terkirim")
     }
   }
 
@@ -125,7 +127,10 @@ const ContactForm = () => {
       <Button type="submit" size="lg" className="rounded-full flex items-center justify-center" disabled={isLoading}>
         {isLoading ? <><Loader2 className="size-4 animate-spin" /> Mengirim...</> : <>Kirim <Send className="size-4" /></>}
       </Button>
-      {message && <p className="text-green-500 mt-4">{message}</p>}
+      {message && <p className={cn({
+        "text-green-500": message === "Email berhasil terkirim",
+        "text-red-500": message === "Email gagal terkirim",
+      }, "text-sm font-semibold")}>{message}</p>}
     </form>
   )
 }
