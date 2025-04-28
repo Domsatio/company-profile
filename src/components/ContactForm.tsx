@@ -28,7 +28,6 @@ const ContactForm = () => {
     handleSubmit,
     setValue,
     reset,
-    setError,
     formState: { errors },
   } = useForm<Email>()
 
@@ -45,7 +44,7 @@ const ContactForm = () => {
       await services.sendEmail(data)
       reset()
       showMessage("Email berhasil terkirim")
-    } catch (error) {
+    } catch {
       showMessage("Email gagal terkirim")
     } finally {
       setIsLoading(false)
